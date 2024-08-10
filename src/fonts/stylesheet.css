@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'Blink';
+    src: url('Blink.woff2') format('woff2'),
+        url('Blink.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Blink';
+    src: url('BlinkLinerObl.woff2') format('woff2'),
+        url('BlinkLinerObl.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Blink';
+    src: url('Blink3D.woff2') format('woff2'),
+        url('Blink3D.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Blink';
+    src: url('BlinkObl.woff2') format('woff2'),
+        url('BlinkObl.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Blink';
+    src: url('BlinkLiner.woff2') format('woff2'),
+        url('BlinkLiner.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Blink';
+    src: url('BlinkUltraWide.woff2') format('woff2'),
+        url('BlinkUltraWide.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Blink';
+    src: url('Blink3DObl.woff2') format('woff2'),
+        url('Blink3DObl.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Blink';
+    src: url('BlinkWide.woff2') format('woff2'),
+        url('BlinkWide.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Blink';
+    src: url('BlinkWideObl.woff2') format('woff2'),
+        url('BlinkWideObl.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

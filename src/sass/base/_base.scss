@@ -1,0 +1,57 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+
+html {
+    font-size: 62.5%;
+    background: #06121e;
+    color: #fff;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'BlinkMacSystemFont';
+}
+
+
+
+.logo {
+    cursor: pointer;
+    font-style: italic;
+}
+
+.logo__name {
+    font-size: 3.6rem;
+    font-family: Dancing Script, Arial, Gadget, sans-serif;
+    background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #adfbda), color-stop(30%, #35c3ff), color-stop(50%, #fda399), color-stop(70%, #76d880), color-stop(90%, #ebf38b), to(#adfbda));
+    -webkit-animation: layout_animatedBackground_a__uXw48 20s linear infinite alternate;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.app-container {
+    background: #06121e;
+}
+
+
+.movies__title {
+    color: #b1a21e;
+    font-family: Oswald, sans-serif;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 1px #1a1a1a;
+    text-transform: uppercase;
+}
+
+.horizontal {
+    width: 100%;
+    height: 1px;
+    background: orange;
+    margin: 8px 0;
+}
+
+a {
+    text-decoration: none;
+}

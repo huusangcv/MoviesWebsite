@@ -1,0 +1,46 @@
+.header {
+    background: none;
+    min-height: 3.25rem;
+    padding: 0 20px;
+
+
+
+    .nav-bar {
+        padding: 20px 0;
+    }
+
+
+    .nav-link {
+        padding: 20px;
+
+        &:hover {
+            background: #1a76bc;
+        }
+
+        &__name {
+            font-size: 1.9rem;
+            padding: 20px 12px;
+            color: #fff;
+            font-weight: 400;
+        }
+
+        &__name+&__name {
+            margin-left: 10px;
+        }
+    }
+
+
+    .dropdown-toggle {
+        color: #fff !important;
+    }
+
+
+    .dropdown-menu {
+        --bs-dropdown-font-size: 1.6rem !important;
+    }
+
+    .myTitleStyle a {
+        color: #fff !important;
+    }
+
+}

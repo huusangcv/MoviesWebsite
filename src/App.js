@@ -1,13 +1,14 @@
 import logo from "./logo.svg";
-import "./App.css";
-import Header from "./Components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import Header from "./Components/Layout/Header";
+import "./sass/main.scss";
+import Footer from "./Components/Layout/Footer";
+import Movies from "./Components/Home/Movies";
 function App() {
     return (
-        <div className="App">
+        <div className="app-container">
             <Header />
-            HelloWorld
+            <Movies />
         </div>
     );
 }

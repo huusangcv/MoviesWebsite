@@ -1,0 +1,26 @@
+.movies {
+    margin-top: 100px;
+
+
+    .card {
+        overflow: hidden;
+
+        &-body {
+            background: #06121e;
+        }
+
+        &-title {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.8rem;
+        }
+
+        &-text {
+            --tw-text-opacity: 1;
+            color: rgb(156 163 175 / var(--tw-text-opacity));
+        }
+
+        --bs-body-bg: none !important
+    }
+
+}
