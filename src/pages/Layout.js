@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import MoviesApi from "../api/moviesApi";
 import Header from "../components/Layout/Header";
 import Movies from "./Movies";
+import Footer from "../components/Layout/Footer";
 const Layout = (props) => {
     return (
         <>
@@ -12,6 +13,7 @@ const Layout = (props) => {
             <section className="movies">
                 <Outlet />
             </section>
+            <Footer />
         </>
     );
 };

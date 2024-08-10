@@ -2,7 +2,7 @@
 import axiosClient from "./axiosClient";
 const MoviesApi = {
     getMovieWatching: (params) => {
-        const url = "/phim-dang-chieu";
+        const url = "/danh-sach/phim-dang-chieu";
         return axiosClient.get(url, { params });
     },
 

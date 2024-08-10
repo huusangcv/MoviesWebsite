@@ -1,3 +1,31 @@
 .footer {
+    margin-top: 30px;
+    min-height: 300px;
+    max-height: 100%;
     background: url('../../assets/images/footer-bg.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__content {
+        color: #fff;
+        font-weight: 500;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    &__title {
+        font-size: 2rem;
+        color: #fff;
+        font-weight: 500;
+    }
+
+    &__list-inner {
+        margin: 20px 0 0 20px;
+        list-style: circle;
+
+        &>li {
+            color: #ccc;
+        }
+    }
 }

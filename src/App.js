@@ -10,19 +10,21 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import NewMovies from "./pages/NewMovies";
+import NotFound from "./components/Notfound";
 
 function App() {
     return (
         <div className="app-container">
             <Routes>
-                <Route path="/" element={<Layout />}>
+                <Route path="/MoviesWebsite" element={<Layout />}>
                     {/* <Route index element={<Home />} />
                     <Route path="blogs" element={<Blogs />} />
                     <Route path="contact" element={<Contact />} />
                     <Route path="*" element={<NoPage />} /> */}
                     {/* <Route index element={<Home />} /> */}
                     <Route index element={<Home />} />
-                    {/* <Route path="phim-moi-cap-nhat" element={<NewMovies />} /> */}
+                    <Route path="phim-moi-cap-nhat" element={<NewMovies />} />
+                    <Route path={"*"} element={<NotFound />} />
                 </Route>
             </Routes>
         </div>

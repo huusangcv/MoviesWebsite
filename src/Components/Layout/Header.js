@@ -8,13 +8,13 @@ const Header = () => {
     return (
         <header className="header">
             <Navbar expand="lg" className="nav-bar">
-                <Navbar.Brand href="/" className="logo">
+                <Navbar.Brand href="/MoviesWebsite" className="logo">
                     <span className="logo__name">Movies</span>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <NavLink className="nav-link" to="/">
+                        <NavLink className="nav-link" to="/MoviesWebsite">
                             <span className="nav-link__name">Phim hot</span>
                         </NavLink>
                         <NavLink className="nav-link" to="/users">
@@ -23,7 +23,10 @@ const Header = () => {
                         <NavLink className="nav-link" to="/admins">
                             <span className="nav-link__name">Phim bộ</span>
                         </NavLink>
-                        <NavLink className="nav-link" to="/phim-moi-cap-nhat">
+                        <NavLink
+                            className="nav-link"
+                            to="/MoviesWebsite/phim-moi-cap-nhat"
+                        >
                             <span className="nav-link__name">Phim mới</span>
                         </NavLink>
                     </Nav>
