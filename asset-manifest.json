@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.css": "/MoviesWebsite/static/css/main.7bac3c4b.css",
-    "main.js": "/MoviesWebsite/static/js/main.c2c4a4ee.js",
+    "main.css": "/MoviesWebsite/static/css/main.e2397d0a.css",
+    "main.js": "/MoviesWebsite/static/js/main.0c4f33a8.js",
     "static/js/453.fa649b71.chunk.js": "/MoviesWebsite/static/js/453.fa649b71.chunk.js",
     "static/media/footer-bg.jpg": "/MoviesWebsite/static/media/footer-bg.7b1562b2b943d2f5056c.jpg",
-    "static/media/deadpool.jfif": "/MoviesWebsite/static/media/deadpool.6b31d9fe9cd7a709faf2.jfif",
     "static/media/logo.svg": "/MoviesWebsite/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/MoviesWebsite/index.html",
-    "main.7bac3c4b.css.map": "/MoviesWebsite/static/css/main.7bac3c4b.css.map",
-    "main.c2c4a4ee.js.map": "/MoviesWebsite/static/js/main.c2c4a4ee.js.map",
+    "main.e2397d0a.css.map": "/MoviesWebsite/static/css/main.e2397d0a.css.map",
+    "main.0c4f33a8.js.map": "/MoviesWebsite/static/js/main.0c4f33a8.js.map",
     "453.fa649b71.chunk.js.map": "/MoviesWebsite/static/js/453.fa649b71.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7bac3c4b.css",
-    "static/js/main.c2c4a4ee.js"
+    "static/css/main.e2397d0a.css",
+    "static/js/main.0c4f33a8.js"
   ]
 }
