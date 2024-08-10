@@ -21,7 +21,7 @@ const NewMovies = () => {
         <div className="container">
             <h2 className="movies__title">Phim mới</h2>
             <div className="horizontal"></div>
-            <div className="row row-cols-4 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-3 row-cols-md-3   row-cols-sm-2  g-4 ">
+            <div className="row row-cols-4 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
                 {movieNew?.items?.map((movie, index) => {
                     return (
                         <div className="col" key={index}>
