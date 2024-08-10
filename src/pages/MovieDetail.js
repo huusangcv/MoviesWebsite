@@ -25,8 +25,8 @@ const MovieDetail = (props) => {
     const dateObject = new Date(movie.created);
 
     // Lấy ra các thông tin ngày tháng năm
-    const day = dateObject.getDate();
-    const month = dateObject.getMonth() + 1;
+    const day = dateObject.getDate().toString().padStart(2, "0");
+    const month = (dateObject.getMonth() + 1).toString().padStart(2, "0");
     const year = dateObject.getFullYear();
 
     // Định dạng ngày tháng năm theo định dạng "12/03/2024"
@@ -74,15 +74,8 @@ const MovieDetail = (props) => {
                                         ĐẠO DIỄN
                                     </div>
                                     <div className="MovieDetail__dd">
-                                        {movie.director}
-                                    </div>
-                                </div>
-                                <div className="MovieDetail__row">
-                                    <div className="MovieDetail__dt">
-                                        KHỞI CHIẾU
-                                    </div>
-                                    <div className="MovieDetail__dd">
-                                        {formattedDate}
+                                        {(movie.director && movie.director) ||
+                                            "Actor"}
                                     </div>
                                 </div>
                                 <div className="MovieDetail__row">
@@ -99,6 +92,14 @@ const MovieDetail = (props) => {
                                     </div>
                                     <div className="MovieDetail__dd">
                                         {movie.casts}
+                                    </div>
+                                </div>
+                                <div className="MovieDetail__row MovieDetail__row--current">
+                                    <div className="MovieDetail__dt">
+                                        KHỞI CHIẾU
+                                    </div>
+                                    <div className="MovieDetail__dd ">
+                                        {formattedDate}
                                     </div>
                                 </div>
                             </div>
