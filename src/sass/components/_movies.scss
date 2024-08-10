@@ -5,8 +5,18 @@
     .card {
         overflow: hidden;
 
+
+        &-poster {
+            padding-top: 67%;
+            position: relative;
+            max-width: 100%;
+        }
+
         &-body {
+            width: 100%;
             background: #06121e;
+            max-width: 100%;
+            height: 100%;
         }
 
         &-title {
@@ -20,7 +30,17 @@
             color: rgb(156 163 175 / var(--tw-text-opacity));
         }
 
-        --bs-body-bg: none !important
+        --bs-body-bg: none !important;
+
+
+        &-img-top {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+
     }
 
 }

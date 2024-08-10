@@ -23,7 +23,7 @@ const Header = () => {
                         <NavLink className="nav-link" to="/admins">
                             <span className="nav-link__name">Phim bộ</span>
                         </NavLink>
-                        <NavLink className="nav-link" to="/admins">
+                        <NavLink className="nav-link" to="/phim-moi-cap-nhat">
                             <span className="nav-link__name">Phim mới</span>
                         </NavLink>
                     </Nav>

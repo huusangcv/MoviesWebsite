@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bs-breakpoint-xxl: 1250px !important
+}
+
 
 html {
     font-size: 62.5%;
