@@ -4,7 +4,7 @@ const Movies = (props) => {
         <div className="container">
             <h2 className="movies__title">{moviesWatching?.cat?.name}</h2>
             <div className="horizontal"></div>
-            <div className="row row-cols-4 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-3 row-cols-md-3   row-cols-sm-2  g-4 ">
+            <div className="row row-cols-4 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-3 row-cols-md-3 row-cols-sm- g-4 ">
                 {moviesWatching?.items?.map((movie, index) => {
                     return (
                         <div className="col" key={index}>
