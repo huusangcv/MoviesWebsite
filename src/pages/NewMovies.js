@@ -24,11 +24,11 @@ const NewMovies = () => {
             <div className="row row-cols-xxl-4 row-cols-xl-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
                 {movieNew?.items?.map((movie, index) => {
                     return (
-                        <div className="col" key={index}>
+                        <div className="col" key={movie.slug}>
                             <a href="#!" className="card">
                                 <div className="card-poster">
                                     <img
-                                        src={movie.poster_url}
+                                        src={movie.thumb_url}
                                         className="card-img-top"
                                         alt="..."
                                     />

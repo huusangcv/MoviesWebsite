@@ -1,12 +1,115 @@
 import { useEffect, useState } from "react";
 import MoviesApi from "../api/moviesApi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { FaPlay } from "react-icons/fa";
 
 const MovieDetail = (props) => {
+    const { slug } = useParams();
+    const [movie, setMovie] = useState(null);
+    useEffect(() => {
+        const fetchMovie = async () => {
+            try {
+                const response = await MoviesApi.getMovieDetail(slug);
+                setMovie(response.movie);
+            } catch (error) {
+                console.error("Error fetching movie:", error);
+            }
+        };
+        fetchMovie();
+    }, [slug]);
+
+    if (!movie) {
+        return <div>Loading...</div>;
+    }
+
+    const dateObject = new Date(movie.created);
+
+    // Lấy ra các thông tin ngày tháng năm
+    const day = dateObject.getDate();
+    const month = dateObject.getMonth() + 1;
+    const year = dateObject.getFullYear();
+
+    // Định dạng ngày tháng năm theo định dạng "12/03/2024"
+    const formattedDate = `${month}/${day}/${year}`;
+    console.log(formattedDate);
+
     return (
-        <div className="MovieDetail" style={{ color: "#fff" }}>
-            Detail mOvie
-        </div>
+        <>
+            <div className="MovieDetail">
+                <div className="container">
+                    <div className="MovieDetail__info">
+                        <div>
+                            <img
+                                src={movie.thumb_url}
+                                alt=""
+                                className="MovieDetail__image-bg"
+                            />
+                            <button className="MovieDetail__watch-now">
+                                <FaPlay /> <span>Xem ngay</span>
+                            </button>
+                        </div>
+                        <div className="MovieDetail__content">
+                            <h2 className="MovieDetail__title">
+                                {movie.original_name}
+                            </h2>
+                            <h3 className="MovieDetail__subtitle">
+                                <span> {movie.name}</span>
+                                <span className="MovieDetail__year">
+                                    (
+                                    {movie &&
+                                        movie.modified &&
+                                        new Date(movie.modified).getFullYear()}
+                                    )
+                                </span>
+                            </h3>
+                            <p className="MovieDetail__time">
+                                <span> {movie.time}</span>
+                                <span className="MovieDetail__quality">
+                                    {movie.quality}
+                                </span>
+                            </p>
+                            <div className="MovieDetail__manufacture">
+                                <div className="MovieDetail__row">
+                                    <div className="MovieDetail__dt">
+                                        ĐẠO DIỄN
+                                    </div>
+                                    <div className="MovieDetail__dd">
+                                        {movie.director}
+                                    </div>
+                                </div>
+                                <div className="MovieDetail__row">
+                                    <div className="MovieDetail__dt">
+                                        KHỞI CHIẾU
+                                    </div>
+                                    <div className="MovieDetail__dd">
+                                        {formattedDate}
+                                    </div>
+                                </div>
+                                <div className="MovieDetail__row">
+                                    <div className="MovieDetail__dt">
+                                        QUỐC GIA
+                                    </div>
+                                    <div className="MovieDetail__dd">
+                                        {movie.category[4].list[0].name}
+                                    </div>
+                                </div>
+                                <div className="MovieDetail__row">
+                                    <div className="MovieDetail__dt">
+                                        DIỄN VIÊN
+                                    </div>
+                                    <div className="MovieDetail__dd">
+                                        {movie.casts}
+                                    </div>
+                                </div>
+                            </div>
+                            <p className="MovieDetail__desc">
+                                {movie.description}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 };
 

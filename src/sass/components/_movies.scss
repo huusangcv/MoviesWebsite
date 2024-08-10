@@ -1,15 +1,13 @@
 .movies {
-    margin-top: 100px;
-
 
     .card {
         overflow: hidden;
 
-
         &-poster {
             padding-top: 67%;
             position: relative;
-            max-width: 100%;
+            min-height: 450px;
+
         }
 
         &-body {
@@ -34,13 +32,127 @@
 
 
         &-img-top {
-            height: 100%;
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
 
     }
 
+}
+
+.MovieDetail {
+    margin-top: 50px;
+    width: 100vw;
+
+    min-height: 300px;
+    height: 600px;
+    background-repeat: no-repeat !important;
+
+    &__image-bg {
+        max-width: 260px;
+        max-height: 360px;
+    }
+
+    &__info {
+        display: flex;
+        gap: 30px;
+    }
+
+    &__content {
+        margin-top: 12px;
+    }
+
+    &__title {
+        font-size: 4.2rem;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    &__subtitle {
+        display: flex;
+        gap: 9px;
+        margin-top: 12px;
+        font-size: 2.4rem;
+        font-weight: 400;
+        color: #ccc;
+    }
+
+    &__time {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: #ccc;
+
+        span.MovieDetail__quality {
+            padding: 4px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-weight: 500;
+            width: 30px;
+            height: 24px;
+            border-radius: 4px;
+            background: #666;
+        }
+    }
+
+    &__watch-now {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+        margin-top: 12px;
+        width: 100%;
+        height: 50px;
+        font-size: 2rem;
+        color: #fff;
+        border-radius: 4px;
+        background: #dd003f;
+    }
+
+    &__year {
+        color: #428bca;
+    }
+
+    &__manufacture {
+        margin-top: 20px;
+    }
+
+    &__row {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        gap: 45px;
+    }
+
+    &__dd {
+        font-size: 2rem;
+        font-weight: 500;
+        color: #fff !important;
+    }
+
+    &__dt {
+        color: #ccc;
+    }
+
+    &__desc {
+        margin-top: 15px;
+        padding: 17px;
+        font-size: 1.6rem;
+        color: #ffffffd7;
+        line-height: 1.4;
+        border-left: 5px solid orange;
+        border-radius: 5px;
+        background: rgba($color: #000000, $alpha: 0.2);
+
+    }
 }
