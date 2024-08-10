@@ -2,17 +2,17 @@
 import axiosClient from "./axiosClient";
 const MoviesApi = {
     getMovieWatching: (params) => {
-        const url = "/danh-sach/phim-dang-chieu";
+        const url = "/films/danh-sach/phim-dang-chieu";
         return axiosClient.get(url, { params });
     },
 
     getMovieNew: (params) => {
-        const url = "/phim-moi-cap-nhat";
+        const url = "/films/phim-moi-cap-nhat";
         return axiosClient.get(url, { params });
     },
 
-    getPage: (id) => {
-        const url = `/phim-dang-chieu?page=${id}`;
+    getMovieDetail: (slug) => {
+        const url = `/film/${slug}`;
         return axiosClient.get(url);
     },
 };
