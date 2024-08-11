@@ -11,6 +11,15 @@ const MoviesApi = {
         return axiosClient.get(url, { params });
     },
 
+    getMoviesSingle: (params) => {
+        const url = "/films/danh-sach/phim-le";
+        return axiosClient.get(url, { params });
+    },
+    getMovieSeries: (params) => {
+        const url = "/films/danh-sach/phim-bo";
+        return axiosClient.get(url, { params });
+    },
+
     getMovieDetail: (slug) => {
         const url = `/film/${slug}`;
         return axiosClient.get(url);

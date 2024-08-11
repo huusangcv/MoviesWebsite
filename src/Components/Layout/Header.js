@@ -14,20 +14,26 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <NavLink className="nav-link" to="/MoviesWebsite">
-                            <span className="nav-link__name">Phim hot</span>
-                        </NavLink>
-                        <NavLink className="nav-link" to="/users">
+                        <NavLink
+                            className="nav-link"
+                            to="/MoviesWebsite/phim-le"
+                        >
                             <span className="nav-link__name">Phim lẻ</span>
-                        </NavLink>
-                        <NavLink className="nav-link" to="/admins">
-                            <span className="nav-link__name">Phim bộ</span>
                         </NavLink>
                         <NavLink
                             className="nav-link"
-                            to="/MoviesWebsite/phim-moi-cap-nhat"
+                            to="/MoviesWebsite/phim-bo"
                         >
-                            <span className="nav-link__name">Phim mới</span>
+                            <span className="nav-link__name">Phim bộ</span>
+                        </NavLink>
+
+                        <NavLink
+                            className="nav-link"
+                            to="/MoviesWebsite/phim-dang-chieu"
+                        >
+                            <span className="nav-link__name">
+                                Phim đang chiếu
+                            </span>
                         </NavLink>
                     </Nav>
                     <Nav>

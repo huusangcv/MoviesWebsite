@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import MoviesApi from "../api/moviesApi";
 import Header from "../components/Layout/Header";
-import Movies from "./Movies";
+import Movies from "./MoviesWatching";
 import Footer from "../components/Layout/Footer";
 const Layout = (props) => {
     // const [movieDetail, setMovieDetail] = useState([]);

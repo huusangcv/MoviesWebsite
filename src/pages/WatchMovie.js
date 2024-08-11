@@ -51,51 +51,60 @@ const WatchMovie = () => {
                 ></iframe>
 
                 <div className="container">
-                    <div className="watch-movie__content">
-                        <h2 className="watch-movie__title">{movie.name}</h2>
-                        <h3 className="watch-movie__subtitle">
-                            {movie.original_name}
-                        </h3>
-                    </div>
-
-                    <div className="watch-movie__episodes">
-                        <div>
+                    <div className="watch-movie__server">
+                        <span>
+                            {(movie.episodes.length === 2 &&
+                                "ĐỔI SERVER (NẾU LƯỜI ĐỌC SUB)") ||
+                                "SERVER"}
+                        </span>
+                        <div className="d-flex gap-3">
                             {movie.episodes.map((episode, index) => (
                                 <button
                                     key={index}
                                     onClick={() => handleServerChange(index)}
-                                    style={{
-                                        backgroundColor:
-                                            index === selectedServer
-                                                ? "blue"
-                                                : "gray",
-                                        color: "white",
-                                    }}
+                                    className={
+                                        (index === selectedServer &&
+                                            "watch-movie__episodes-server active") ||
+                                        "watch-movie__episodes-server"
+                                    }
                                 >
-                                    {episode.server_name}
+                                    <span> {episode.server_name}</span>
                                 </button>
                             ))}
                         </div>
-                        <div>
-                            {movie.episodes[selectedServer].items.map(
-                                (item, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() =>
-                                            handleEpisodeChange(index)
-                                        }
-                                        style={{
-                                            backgroundColor:
-                                                index === selectedEpisode
-                                                    ? "blue"
-                                                    : "gray",
-                                            color: "white",
-                                        }}
-                                    >
-                                        {item.name}
-                                    </button>
-                                )
-                            )}
+                    </div>
+                    <div className="watch-movie__inner">
+                        <div className="watch-movie__content">
+                            <h2 className="watch-movie__title">{movie.name}</h2>
+                            <h3 className="watch-movie__subtitle">
+                                {movie.original_name}
+                            </h3>
+                        </div>
+
+                        <div className="watch-movie__episodes">
+                            <div className="watch-movie__episodes-btns">
+                                {movie.episodes[selectedServer].items.map(
+                                    (item, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() =>
+                                                handleEpisodeChange(index)
+                                            }
+                                            className={
+                                                (index === selectedEpisode &&
+                                                    "watch-movie__episodes-btn active") ||
+                                                "watch-movie__episodes-btn"
+                                            }
+                                            disabled={
+                                                index === selectedEpisode &&
+                                                true
+                                            }
+                                        >
+                                            <span>Tập {item.name}</span>
+                                        </button>
+                                    )
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

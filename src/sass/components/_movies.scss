@@ -46,6 +46,7 @@
 }
 
 .MovieDetail {
+    position: relative;
     margin-top: 50px;
     width: 100vw;
 
@@ -163,5 +164,10 @@
         border-radius: 5px;
         background: rgba($color: #000000, $alpha: 0.2);
 
+    }
+
+    &__poster {
+        position: absolute;
+        top: 0;
     }
 }

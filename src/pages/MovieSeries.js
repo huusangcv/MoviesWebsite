@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import MoviesApi from "../api/moviesApi";
 import { useNavigate } from "react-router-dom";
 
-const NewMovies = () => {
+const MovieSeries = () => {
     const [movieNew, setMovieNew] = useState([]);
     const nagivate = useNavigate();
     useEffect(() => {
         const fecthMovies = async () => {
             try {
                 const params = { page: 1 };
-                const response = await MoviesApi.getMovieNew(params);
+                const response = await MoviesApi.getMovieSeries(params);
                 setMovieNew(response);
             } catch (error) {
                 console.log("Faild to fetch movies", error);
@@ -19,7 +19,7 @@ const NewMovies = () => {
     }, []);
     return (
         <div className="container">
-            <h2 className="movies__title">Phim mới</h2>
+            <h2 className="movies__title">Phim bộ</h2>
             <div className="horizontal"></div>
             <div className="row row-cols-xxl-5 row-cols-xl-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
                 {movieNew?.items?.map((movie, index) => {
@@ -57,4 +57,4 @@ const NewMovies = () => {
     );
 };
 
-export default NewMovies;
+export default MovieSeries;

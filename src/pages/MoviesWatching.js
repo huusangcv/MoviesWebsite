@@ -1,12 +1,28 @@
+import { useEffect, useState } from "react";
+import MoviesApi from "../api/moviesApi";
 import { useNavigate } from "react-router-dom";
-const Movies = (props) => {
-    const { moviesWatching } = props;
+
+const MoviesWatching = (props) => {
     const nagivate = useNavigate();
+    const [moviesWatching, setMoviesWatching] = useState([]);
+
+    useEffect(() => {
+        const fecthMovies = async () => {
+            try {
+                const params = { page: 1 };
+                const response = await MoviesApi.getMovieWatching(params);
+                setMoviesWatching(response);
+            } catch (error) {
+                console.log("Faild to fetch movies", error);
+            }
+        };
+        fecthMovies();
+    }, []);
     return (
         <div className="container">
             <h2 className="movies__title">{moviesWatching?.cat?.name}</h2>
             <div className="horizontal"></div>
-            <div className="row row-cols-xxl-4 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
+            <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
                 {moviesWatching?.items?.map((movie, index) => {
                     return (
                         <div className="col" key={movie.slug}>
@@ -41,4 +57,4 @@ const Movies = (props) => {
     );
 };
 
-export default Movies;
+export default MoviesWatching;
