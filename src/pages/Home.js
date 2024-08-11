@@ -8,13 +8,28 @@ import MoviesWatching from "./MoviesWatching";
 import MovieSeries from "./MovieSeries";
 import SingleMovies from "./SingleMovies";
 const Home = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2000); // 2 seconds delay
+
+        return () => clearTimeout(timer);
+    }, []);
     return (
         <>
-            <SingleMovies />
-            <div style={{ marginTop: "15px" }}></div>
-            <MovieSeries />
-            <div style={{ marginTop: "15px" }}></div>
-            <MoviesWatching />
+            {isLoading ? (
+                <div>Loading...</div>
+            ) : (
+                <>
+                    <SingleMovies />
+                    <div style={{ marginTop: "15px" }}></div>
+                    <MovieSeries />
+                    <div style={{ marginTop: "15px" }}></div>
+                    <MoviesWatching />
+                </>
+            )}
         </>
     );
 };

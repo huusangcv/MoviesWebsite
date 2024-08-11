@@ -24,5 +24,9 @@ const MoviesApi = {
         const url = `/film/${slug}`;
         return axiosClient.get(url);
     },
+    getMoviesSearch: (params) => {
+        const url = `/films/search`;
+        return axiosClient.get(url, { params });
+    },
 };
 export default MoviesApi;

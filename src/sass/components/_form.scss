@@ -1,0 +1,17 @@
+.input-group {
+    margin: 30px 0;
+
+    .form-outline {
+        width: 100%;
+
+        input {
+            padding: 15px 10px;
+            font-size: 1.8rem;
+        }
+
+        ::placeholder {
+            color: #999;
+            font-size: 1.8rem;
+        }
+    }
+}

@@ -26,6 +26,7 @@ const Layout = (props) => {
         <>
             <Header />
             <section className="movies">
+                <div className="movies__filter"></div>
                 <Outlet />
             </section>
             <Footer />

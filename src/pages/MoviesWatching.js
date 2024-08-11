@@ -1,23 +1,35 @@
 import { useEffect, useState } from "react";
 import MoviesApi from "../api/moviesApi";
 import { useNavigate } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 const MoviesWatching = (props) => {
     const nagivate = useNavigate();
     const [moviesWatching, setMoviesWatching] = useState([]);
-
+    const [page, setPage] = useState(1);
+    const pageCount = moviesWatching?.paginate?.total_page;
     useEffect(() => {
         const fecthMovies = async () => {
             try {
-                const params = { page: 1 };
+                const params = { page: page };
                 const response = await MoviesApi.getMovieWatching(params);
                 setMoviesWatching(response);
             } catch (error) {
                 console.log("Faild to fetch movies", error);
             }
         };
+        if (moviesWatching?.cat?.title) {
+            document.title = moviesWatching?.cat?.title;
+        }
+        window.scrollTo({
+            top: 0,
+        });
         fecthMovies();
-    }, []);
+    }, [page]);
+
+    const handlePageClick = (event) => {
+        setPage(event.selected);
+    };
     return (
         <div className="container">
             <h2 className="movies__title">{moviesWatching?.cat?.name}</h2>
@@ -52,6 +64,29 @@ const MoviesWatching = (props) => {
                         </div>
                     );
                 })}
+            </div>
+            <div className="paginate">
+                <ReactPaginate
+                    nextLabel="Trang kế >"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={2}
+                    pageCount={pageCount}
+                    previousLabel="< Trang trước"
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    breakLabel="..."
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination"
+                    activeClassName="active"
+                    renderOnZeroPageCount={null}
+                    forcePage={page}
+                />
             </div>
         </div>
     );

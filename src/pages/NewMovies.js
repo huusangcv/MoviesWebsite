@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import MoviesApi from "../api/moviesApi";
 import { useNavigate } from "react-router-dom";
+import { Pagination } from "react-bootstrap";
 
 const NewMovies = () => {
     const [movieNew, setMovieNew] = useState([]);
+
     const nagivate = useNavigate();
     useEffect(() => {
         const fecthMovies = async () => {
@@ -15,13 +17,16 @@ const NewMovies = () => {
                 console.log("Faild to fetch movies", error);
             }
         };
+        window.scrollTo({
+            top: 0,
+        });
         fecthMovies();
     }, []);
     return (
         <div className="container">
             <h2 className="movies__title">Phim mới</h2>
             <div className="horizontal"></div>
-            <div className="row row-cols-xxl-5 row-cols-xl-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
+            <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
                 {movieNew?.items?.map((movie, index) => {
                     return (
                         <div className="col" key={movie.slug}>

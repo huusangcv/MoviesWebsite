@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import MoviesApi from "../api/moviesApi";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
@@ -18,6 +18,9 @@ const MovieDetail = (props) => {
             }
         };
         fetchMovie();
+        window.scrollTo({
+            top: 0,
+        });
     }, [slug]);
 
     if (!movie) {
@@ -33,7 +36,6 @@ const MovieDetail = (props) => {
 
     // Định dạng ngày tháng năm theo định dạng "12/03/2024"
     const formattedDate = `${month}/${day}/${year}`;
-    console.log(formattedDate);
 
     return (
         <>

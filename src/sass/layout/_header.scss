@@ -1,7 +1,20 @@
 .header {
     background: none;
     min-height: 3.25rem;
+    padding: 0 20px;
 
+    .nav-link__search {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 1.9rem;
+        color: #fff;
+        font-weight: 400;
+
+        &:hover {
+            color: #7ab9e8;
+        }
+    }
 
 
     .nav-bar {

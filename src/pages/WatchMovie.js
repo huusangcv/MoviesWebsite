@@ -20,6 +20,9 @@ const WatchMovie = () => {
             }
         };
         fetchMovie();
+        window.scrollTo({
+            top: 0,
+        });
     }, [slug]);
 
     const [selectedEpisode, setSelectedEpisode] = useState(0);
