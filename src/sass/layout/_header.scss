@@ -1,20 +1,20 @@
 .header {
     background: none;
     min-height: 3.25rem;
-    padding: 0 20px;
 
 
 
     .nav-bar {
-        padding: 20px 0;
+        --bs-navbar-padding-y: 0
     }
 
 
     .nav-link {
-        padding: 20px;
+        padding: 25px;
 
         &:hover {
             background: #1a76bc;
+
         }
 
         &__name {
@@ -22,6 +22,10 @@
             padding: 20px 12px;
             color: #fff;
             font-weight: 400;
+
+            &:hover {
+                color: #7ab9e8;
+            }
         }
 
         &__name+&__name {

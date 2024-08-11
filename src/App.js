@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import NewMovies from "./pages/NewMovies";
 import NotFound from "./components/Notfound";
 import MovieDetail from "./pages/MovieDetail";
+import WatchMovie from "./pages/WatchMovie";
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path="phim-moi-cap-nhat" element={<NewMovies />} />
                     <Route path="movie/:slug" element={<MovieDetail />} />
+                    <Route path="watch/:slug" element={<WatchMovie />}></Route>
                     <Route path={"*"} element={<NotFound />} />
                 </Route>
             </Routes>

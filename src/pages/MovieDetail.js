@@ -6,6 +6,8 @@ import { FaPlay } from "react-icons/fa";
 const MovieDetail = (props) => {
     const { slug } = useParams();
     const [movie, setMovie] = useState(null);
+    const nagivate = useNavigate();
+
     useEffect(() => {
         const fetchMovie = async () => {
             try {
@@ -44,7 +46,14 @@ const MovieDetail = (props) => {
                                 alt=""
                                 className="MovieDetail__image-bg"
                             />
-                            <button className="MovieDetail__watch-now">
+                            <button
+                                className="MovieDetail__watch-now"
+                                onClick={() =>
+                                    nagivate(
+                                        `/MoviesWebsite/watch/${movie.slug}`
+                                    )
+                                }
+                            >
                                 <FaPlay /> <span>Xem ngay</span>
                             </button>
                         </div>
@@ -63,7 +72,9 @@ const MovieDetail = (props) => {
                                 </span>
                             </h3>
                             <p className="MovieDetail__time">
-                                <span> {movie.time}</span>
+                                <span>
+                                    {(movie.time && movie.time) || "Full 1 tập"}
+                                </span>
                                 <span className="MovieDetail__quality">
                                     {movie.quality}
                                 </span>

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import MoviesApi from "../api/moviesApi";
+import { useNavigate } from "react-router-dom";
 
 const NewMovies = () => {
     const [movieNew, setMovieNew] = useState([]);
-
+    const nagivate = useNavigate();
     useEffect(() => {
         const fecthMovies = async () => {
             try {
@@ -25,7 +26,15 @@ const NewMovies = () => {
                 {movieNew?.items?.map((movie, index) => {
                     return (
                         <div className="col" key={movie.slug}>
-                            <a href="#!" className="card">
+                            <a
+                                href="#!"
+                                className="card"
+                                onClick={() =>
+                                    nagivate(
+                                        `/MoviesWebsite/movie/${movie.slug}`
+                                    )
+                                }
+                            >
                                 <div className="card-poster">
                                     <img
                                         src={movie.thumb_url}
