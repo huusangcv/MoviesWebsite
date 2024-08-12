@@ -7,6 +7,7 @@ import MoviesApi from "../api/moviesApi";
 import MoviesWatching from "./MoviesWatching";
 import MovieSeries from "./MovieSeries";
 import SingleMovies from "./SingleMovies";
+import NewMovies from "./NewMovies";
 const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
 
@@ -23,11 +24,7 @@ const Home = () => {
                 <div>Loading...</div>
             ) : (
                 <>
-                    {/* <SingleMovies />{/*
-                    <div style={{ marginTop: "15px" }}></div>
-                    <MovieSeries />
-                    <div style={{ marginTop: "15px" }}></div>
-                    <MoviesWatching /> */}
+                    <NewMovies />
                 </>
             )}
         </>

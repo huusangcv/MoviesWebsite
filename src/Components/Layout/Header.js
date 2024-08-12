@@ -112,6 +112,12 @@ const Header = () => {
                                 );
                             })}
                         </NavDropdown>
+                        <NavLink
+                            className="nav-link"
+                            to="/MoviesWebsite/phim-dang-chieu"
+                        >
+                            <span className="nav-link__name">FAQs</span>
+                        </NavLink>
                     </Nav>
                     <Nav>
                         {showSearchButton && (
@@ -130,7 +136,17 @@ const Header = () => {
                         )}
                     </Nav>
                     <Nav>
-                        <NavDropdown
+                        <>
+                            <button
+                                className="btn-login btn "
+                                onClick={() => {
+                                    nagivate("/login");
+                                }}
+                            >
+                                Đăng nhập
+                            </button>
+                        </>
+                        {/* <NavDropdown
                             id="basic-nav-dropdown"
                             title={
                                 <span className="nav-link__name">Hữu Sang</span>
@@ -139,7 +155,7 @@ const Header = () => {
                             <NavDropdown.Item>Profile</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item>Logout</NavDropdown.Item>
-                        </NavDropdown>
+                        </NavDropdown> */}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

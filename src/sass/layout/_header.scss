@@ -1,7 +1,9 @@
 .header {
+    position: relative;
     background: none;
     min-height: 3.25rem;
     padding: 0 20px;
+    z-index: 999;
 
     .nav-link__search {
         display: flex;

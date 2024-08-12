@@ -7,7 +7,7 @@ const MovieSeries = () => {
     const [movieNew, setMovieNew] = useState([]);
     const nagivate = useNavigate();
     const [page, setPage] = useState(1);
-    const pageCount = +movieNew?.paginate?.total_page;
+    const pageCount = Math.ceil(+movieNew?.paginate?.total_page);
     useEffect(() => {
         const fecthMovies = async () => {
             try {

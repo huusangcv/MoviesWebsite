@@ -18,6 +18,8 @@ import MovieSeries from "./pages/MovieSeries";
 import MoviesWatching from "./pages/MoviesWatching";
 import MoviesSearch from "./pages/MoviesSearch";
 import MoviesType from "./pages/MoviesType";
+import Login from "./components/Auth/Login";
+import "./components/Auth/Login.scss";
 
 function App() {
     return (
@@ -39,6 +41,7 @@ function App() {
                 <Route path="watch/:slug" element={<WatchMovie />} />
                 <Route path={"*"} element={<NotFound />} />
             </Route>
+            <Route path="/login" element={<Login />} />
         </Routes>
     );
 }

@@ -25,7 +25,9 @@ const MoviesType = () => {
             }
         };
         window.scrollTo(0, 0);
-
+        if (movie?.cat?.title) {
+            document.title = movie?.cat?.title;
+        }
         let timer = setTimeout(() => {
             fecthMovies();
         }, 300);

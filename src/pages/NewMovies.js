@@ -28,7 +28,15 @@ const NewMovies = () => {
     }
     return (
         <div className="container">
-            <h2 className="movies__title">Phim mới</h2>
+            <div className="d-flex justify-content-between align-items-end">
+                <h2 className="movies__title">Phim bộ mới</h2>
+                <div
+                    className="movies__link"
+                    onClick={() => nagivate("/phim-bo")}
+                >
+                    Xem tất cả
+                </div>
+            </div>
             <div className="horizontal"></div>
             <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
                 {movieNew?.items?.map((movie, index) => {
