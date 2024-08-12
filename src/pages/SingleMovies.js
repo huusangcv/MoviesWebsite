@@ -43,7 +43,8 @@ const SingleMovies = () => {
                     {movie?.items?.map((movie, index) => {
                         return (
                             <div className="col" key={movie.slug}>
-                                <div
+                                <a
+                                    href=""
                                     className="card"
                                     onClick={() =>
                                         nagivate(
@@ -67,7 +68,7 @@ const SingleMovies = () => {
                                             {movie.original_name}
                                         </p>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         );
                     })}
