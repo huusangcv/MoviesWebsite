@@ -6,7 +6,7 @@ import Footer from "./components/Layout/Footer";
 import Movies from "./pages/MoviesWatching";
 import { useEffect, useState } from "react";
 import MoviesApi from "./api/moviesApi";
-import { Route, Routes } from "react-router-dom";
+import { Route, Router, Routes } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import NewMovies from "./pages/NewMovies";
@@ -21,31 +21,36 @@ import MoviesType from "./pages/MoviesType";
 
 function App() {
     return (
-        <div className="app-container">
-            <Routes>
-                <Route path="MoviesWebsite" element={<Layout />}>
-                    {/* <Route index element={<Home />} />
+        <Router basename="/MoviesWebsite">
+            <div className="app-container">
+                <Routes>
+                    <Route path="MoviesWebsite" element={<Layout />}>
+                        {/* <Route index element={<Home />} />
                     <Route path="blogs" element={<Blogs />} />
                     <Route path="contact" element={<Contact />} />
                     <Route path="*" element={<NoPage />} /> */}
-                    {/* <Route index element={<Home />} /> */}
-                    <Route index element={<Home />} />
-                    <Route path="phim-moi-cap-nhat" element={<NewMovies />} />
-                    <Route path="phim-le" element={<SingleMovies />} />
-                    <Route path="phim-bo" element={<MovieSeries />} />
-                    <Route
-                        path="phim-dang-chieu"
-                        element={<MoviesWatching />}
-                    />
-                    <Route path="type/:slug" element={<MoviesType />} />
-                    <Route path="search" element={<MoviesSearch />} />
-                    <Route path="movie/:slug" element={<MovieDetail />} />
-                    <Route path="watch/:slug" element={<WatchMovie />} />
+                        {/* <Route index element={<Home />} /> */}
+                        <Route index element={<Home />} />
+                        <Route
+                            path="phim-moi-cap-nhat"
+                            element={<NewMovies />}
+                        />
+                        <Route path="phim-le" element={<SingleMovies />} />
+                        <Route path="phim-bo" element={<MovieSeries />} />
+                        <Route
+                            path="phim-dang-chieu"
+                            element={<MoviesWatching />}
+                        />
+                        <Route path="type/:slug" element={<MoviesType />} />
+                        <Route path="search" element={<MoviesSearch />} />
+                        <Route path="movie/:slug" element={<MovieDetail />} />
+                        <Route path="watch/:slug" element={<WatchMovie />} />
 
-                    <Route path={"*"} element={<NotFound />} />
-                </Route>
-            </Routes>
-        </div>
+                        <Route path={"*"} element={<NotFound />} />
+                    </Route>
+                </Routes>
+            </div>
+        </Router>
     );
 }
 
