@@ -30,6 +30,10 @@ const MoviesWatching = (props) => {
     const handlePageClick = (event) => {
         setPage(event.selected);
     };
+
+    if (!moviesWatching) {
+        return <div>Loading...</div>;
+    }
     return (
         <div className="container">
             <h2 className="movies__title">{moviesWatching?.cat?.name}</h2>

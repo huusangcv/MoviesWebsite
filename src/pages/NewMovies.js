@@ -22,6 +22,10 @@ const NewMovies = () => {
         });
         fecthMovies();
     }, []);
+
+    if (!movieNew) {
+        return <div>Loading...</div>;
+    }
     return (
         <div className="container">
             <h2 className="movies__title">Phim mới</h2>

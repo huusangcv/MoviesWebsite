@@ -28,6 +28,10 @@ const MovieSeries = () => {
     const handlePageClick = (event) => {
         setPage(event.selected);
     };
+
+    if (!movieNew) {
+        return <div>Loading...</div>;
+    }
     return (
         <div className="container">
             <h2 className="movies__title">Phim bộ</h2>

@@ -6,9 +6,9 @@ import { PaginationControl } from "react-bootstrap-pagination-control";
 import ReactPaginate from "react-paginate";
 
 const SingleMovies = () => {
-    const [movieNew, setMovieNew] = useState([]);
+    const [movie, setMovieNew] = useState([]);
     const [page, setPage] = useState(1);
-    const pageCount = movieNew?.paginate?.total_page;
+    const pageCount = movie?.paginate?.total_page;
     const nagivate = useNavigate();
     useEffect(() => {
         const fecthMovies = async () => {
@@ -30,13 +30,17 @@ const SingleMovies = () => {
         setPage(event.selected);
     };
 
+    if (!movie) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <>
             <div className="container">
                 <h2 className="movies__title">Phim lẻ</h2>
                 <div className="horizontal"></div>
                 <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
-                    {movieNew?.items?.map((movie, index) => {
+                    {movie?.items?.map((movie, index) => {
                         return (
                             <div className="col" key={movie.slug}>
                                 <a

@@ -7,16 +7,10 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Form, NavLink, useNavigate } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 const Header = () => {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [searchResults, setSearchResults] = useState([]);
-    const nagivate = useNavigate();
-    const handleSearch = (event) => {
-        const term = event.target.value;
-        setSearchTerm(term);
-        // Gọi API để tìm kiếm phim dựa trên searchTerm và lưu kết quả vào searchResults
-        // fetchMoviesBySearchTerm(term).then((results) => {
-        //     setSearchResults(results);
-        // });
+    const [showSearchButton, setShowSearchButton] = useState(true);
+
+    const handleShowBtnSearch = () => {
+        setShowSearchButton(false);
     };
 
     return (
@@ -51,15 +45,20 @@ const Header = () => {
                         </NavLink>
                     </Nav>
                     <Nav>
-                        <NavLink
-                            className="nav-link"
-                            to="/MoviesWebsite/search"
-                        >
-                            <span className="nav-link__search">
-                                <IoSearch />
-                                Tìm kiếm
-                            </span>
-                        </NavLink>
+                        {showSearchButton && (
+                            <NavLink
+                                className="nav-link"
+                                to="/MoviesWebsite/search"
+                                onClick={() => {
+                                    handleShowBtnSearch();
+                                }}
+                            >
+                                <span className="nav-link__search">
+                                    <IoSearch />
+                                    Tìm kiếm
+                                </span>
+                            </NavLink>
+                        )}
                     </Nav>
                     <Nav>
                         <NavDropdown
