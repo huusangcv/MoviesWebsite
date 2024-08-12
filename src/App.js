@@ -29,7 +29,6 @@ function App() {
                     <Route path="*" element={<NoPage />} /> */}
                     {/* <Route index element={<Home />} /> */}
                     <Route index element={<Home />} />
-                    <Route path="search" element={<MoviesSearch />} />
                     <Route path="phim-moi-cap-nhat" element={<NewMovies />} />
                     <Route path="phim-le" element={<SingleMovies />} />
                     <Route path="phim-bo" element={<MovieSeries />} />
@@ -37,6 +36,7 @@ function App() {
                         path="phim-dang-chieu"
                         element={<MoviesWatching />}
                     />
+                    <Route path="search" element={<MoviesSearch />} />
                     <Route path="movie/:slug" element={<MovieDetail />} />
                     <Route path="watch/:slug" element={<WatchMovie />} />
                     <Route path={"*"} element={<NotFound />} />
