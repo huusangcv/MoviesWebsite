@@ -22,6 +22,7 @@ const MoviesSearch = () => {
             }
         };
         fecthMovies();
+        window.scrollTo(0, 0);
     }, [keyword, page]);
 
     if (!moviesSearch) {
@@ -34,7 +35,7 @@ const MoviesSearch = () => {
     };
 
     const handlePageClick = (event) => {
-        setPage(event.defaultValue + 1);
+        setPage(event.selected + 1);
     };
 
     return (

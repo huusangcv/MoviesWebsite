@@ -18,12 +18,12 @@ const MovieSeries = () => {
                 console.log("Faild to fetch movies", error);
             }
         };
-        fecthMovies();
         window.scrollTo(0, 0);
+        fecthMovies();
     }, [page]);
     console.log(page);
     const handlePageClick = (event) => {
-        setPage(event.defaultValue + 1);
+        setPage(event.selected + 1);
     };
 
     if (!movieNew) {

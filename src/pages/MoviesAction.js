@@ -26,7 +26,7 @@ const MoviesType = () => {
 
     console.log(page);
     const handlePageClick = (event) => {
-        setPage(event.defaultValue + 1);
+        setPage(event.selected + 1);
     };
 
     if (!movie) {

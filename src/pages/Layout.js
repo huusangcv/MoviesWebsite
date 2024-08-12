@@ -24,12 +24,14 @@ const Layout = (props) => {
 
     return (
         <>
-            <Header />
-            <section className="movies">
-                <div className="movies__filter"></div>
-                <Outlet />
-            </section>
-            <Footer />
+            <div className="app-container">
+                <Header />
+                <section className="movies">
+                    <div className="movies__filter"></div>
+                    <Outlet />
+                </section>
+                <Footer />
+            </div>
         </>
     );
 };

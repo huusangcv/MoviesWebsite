@@ -10,8 +10,9 @@ const MoviesType = () => {
     const [page, setPage] = useState(1);
     const nagivate = useNavigate();
     const { slug } = useParams();
+    const [slugOld, setSlugOld] = useState(slug);
     const pageCount = +movie?.paginate?.total_page;
-    console.log(slug);
+
     useEffect(() => {
         const fecthMovies = async () => {
             try {
@@ -23,6 +24,7 @@ const MoviesType = () => {
                 console.log("Faild to fetch movies", error);
             }
         };
+        window.scrollTo(0, 0);
 
         let timer = setTimeout(() => {
             fecthMovies();

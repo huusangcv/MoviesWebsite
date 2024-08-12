@@ -11,7 +11,7 @@ const SingleMovies = () => {
     const [movie3, setMovie3] = useState([]);
     const nagivate = useNavigate();
     const [page, setPage] = useState(1);
-    const pageCount = +movie?.paginate?.total_page;
+    const pageCount = movie?.paginate?.total_page ?? 0;
     useEffect(() => {
         const fecthMovies = async () => {
             try {
@@ -24,11 +24,12 @@ const SingleMovies = () => {
         };
 
         fecthMovies();
+        window.scrollTo(0, 0);
     }, [page]);
 
     console.log(page);
     const handlePageClick = (event) => {
-        setPage(event.defaultValue + 1);
+        setPage(event.selected + 1);
     };
 
     if (!movie) {
