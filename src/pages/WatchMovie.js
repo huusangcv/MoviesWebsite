@@ -25,16 +25,16 @@ const WatchMovie = () => {
         });
     }, [slug]);
 
-    const [selectedEpisode, setSelectedEpisode] = useState(0);
-    const [selectedServer, setSelectedServer] = useState(0);
+    const [defaultValueEpisode, setdefaultValueEpisode] = useState(0);
+    const [defaultValueServer, setdefaultValueServer] = useState(0);
 
     const handleEpisodeChange = (index) => {
-        setSelectedEpisode(index);
+        setdefaultValueEpisode(index);
     };
 
     const handleServerChange = (index) => {
-        setSelectedServer(index);
-        setSelectedEpisode(0);
+        setdefaultValueServer(index);
+        setdefaultValueEpisode(0);
     };
 
     if (!movie) {
@@ -47,8 +47,9 @@ const WatchMovie = () => {
                 <iframe
                     allowFullScreen
                     src={
-                        movie.episodes[selectedServer].items[selectedEpisode]
-                            .embed
+                        movie.episodes[defaultValueServer].items[
+                            defaultValueEpisode
+                        ].embed
                     }
                     className="watch-movie__iframe"
                 ></iframe>
@@ -66,7 +67,7 @@ const WatchMovie = () => {
                                     key={index}
                                     onClick={() => handleServerChange(index)}
                                     className={
-                                        (index === selectedServer &&
+                                        (index === defaultValueServer &&
                                             "watch-movie__episodes-server active") ||
                                         "watch-movie__episodes-server"
                                     }
@@ -86,7 +87,7 @@ const WatchMovie = () => {
 
                         <div className="watch-movie__episodes">
                             <div className="watch-movie__episodes-btns">
-                                {movie.episodes[selectedServer].items.map(
+                                {movie?.episodes[defaultValueServer]?.items.map(
                                     (item, index) => (
                                         <button
                                             key={index}
@@ -94,12 +95,13 @@ const WatchMovie = () => {
                                                 handleEpisodeChange(index)
                                             }
                                             className={
-                                                (index === selectedEpisode &&
+                                                (index ===
+                                                    defaultValueEpisode &&
                                                     "watch-movie__episodes-btn active") ||
                                                 "watch-movie__episodes-btn"
                                             }
                                             disabled={
-                                                index === selectedEpisode &&
+                                                index === defaultValueEpisode &&
                                                 true
                                             }
                                         >

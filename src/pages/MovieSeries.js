@@ -7,26 +7,23 @@ const MovieSeries = () => {
     const [movieNew, setMovieNew] = useState([]);
     const nagivate = useNavigate();
     const [page, setPage] = useState(1);
-    const pageCount = movieNew?.paginate?.total_page;
+    const pageCount = +movieNew?.paginate?.total_page;
     useEffect(() => {
         const fecthMovies = async () => {
             try {
-                const params = { page: page };
-                console.log(params);
+                const params = { page: +page };
                 const response = await MoviesApi.getMovieSeries(params);
                 setMovieNew(response);
             } catch (error) {
                 console.log("Faild to fetch movies", error);
             }
         };
-        window.scrollTo({
-            top: 0,
-        });
         fecthMovies();
+        window.scrollTo(0, 0);
     }, [page]);
-
+    console.log(page);
     const handlePageClick = (event) => {
-        setPage(event.selected);
+        setPage(event.defaultValue + 1);
     };
 
     if (!movieNew) {
@@ -88,7 +85,7 @@ const MovieSeries = () => {
                     containerClassName="pagination"
                     activeClassName="active"
                     renderOnZeroPageCount={null}
-                    forcePage={page}
+                    forcePage={page - 1}
                 />
             </div>
         </div>

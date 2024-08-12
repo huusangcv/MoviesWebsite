@@ -1,34 +1,38 @@
 import { useEffect, useState } from "react";
 import MoviesApi from "../api/moviesApi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Pagination } from "react-bootstrap";
 import { PaginationControl } from "react-bootstrap-pagination-control";
 import ReactPaginate from "react-paginate";
 
-const SingleMovies = () => {
+const MoviesType = () => {
     const [movie, setMovie] = useState([]);
-    const [movie2, setMovie2] = useState([]);
-    const [movie3, setMovie3] = useState([]);
-    const nagivate = useNavigate();
     const [page, setPage] = useState(1);
+    const nagivate = useNavigate();
+    const { slug } = useParams();
     const pageCount = +movie?.paginate?.total_page;
+    console.log(slug);
     useEffect(() => {
         const fecthMovies = async () => {
             try {
                 const params = { page: +page };
-                const response = await MoviesApi.getMoviesSingle(params);
+                const response = await MoviesApi.getMoviesType(slug, params);
                 setMovie(response);
+                // setMovie(response);
             } catch (error) {
                 console.log("Faild to fetch movies", error);
             }
         };
 
-        fecthMovies();
-    }, [page]);
+        let timer = setTimeout(() => {
+            fecthMovies();
+        }, 300);
 
-    console.log(page);
+        return () => clearTimeout(timer);
+    }, [page, slug]);
+
     const handlePageClick = (event) => {
-        setPage(event.defaultValue + 1);
+        setPage(event.selected + 1);
     };
 
     if (!movie) {
@@ -138,7 +142,7 @@ const SingleMovies = () => {
                         </div>
                     </div>
                 </div>
-                <h2 className="movies__title">Phim lẻ</h2>
+                <h2 className="movies__title"> {`Phim ${movie?.cat?.name}`}</h2>
                 <div className="horizontal"></div>
                 <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
                     {movie?.items?.map((movie, index) => {
@@ -202,4 +206,4 @@ const SingleMovies = () => {
     );
 };
 
-export default SingleMovies;
+export default MoviesType;

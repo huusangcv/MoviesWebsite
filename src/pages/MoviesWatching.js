@@ -7,11 +7,11 @@ const MoviesWatching = (props) => {
     const nagivate = useNavigate();
     const [moviesWatching, setMoviesWatching] = useState([]);
     const [page, setPage] = useState(1);
-    const pageCount = moviesWatching?.paginate?.total_page;
+    const pageCount = +moviesWatching?.paginate?.total_page;
     useEffect(() => {
         const fecthMovies = async () => {
             try {
-                const params = { page: page };
+                const params = { page: +page };
                 const response = await MoviesApi.getMovieWatching(params);
                 setMoviesWatching(response);
             } catch (error) {
@@ -21,14 +21,12 @@ const MoviesWatching = (props) => {
         if (moviesWatching?.cat?.title) {
             document.title = moviesWatching?.cat?.title;
         }
-        window.scrollTo({
-            top: 0,
-        });
+        window.scrollTo(0, 0);
         fecthMovies();
     }, [page]);
 
     const handlePageClick = (event) => {
-        setPage(event.selected);
+        setPage(event.defaultValue + 1);
     };
 
     if (!moviesWatching) {
@@ -89,7 +87,7 @@ const MoviesWatching = (props) => {
                     containerClassName="pagination"
                     activeClassName="active"
                     renderOnZeroPageCount={null}
-                    forcePage={page}
+                    forcePage={page - 1}
                 />
             </div>
         </div>

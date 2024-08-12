@@ -5,23 +5,22 @@ import ReactPaginate from "react-paginate";
 
 const MoviesSearch = () => {
     const [moviesSearch, setMoviesSearch] = useState([]);
+    const [moviesSearch2, setMoviesSearch2] = useState([]);
+    const [moviesSearch3, setMoviesSearch3] = useState([]);
     const [page, setPage] = useState(1);
-    const pageCount = moviesSearch?.paginate?.total_page;
+    const pageCount = +moviesSearch?.paginate?.total_page;
     const [keyword, setKeyword] = useState("");
     const nagivate = useNavigate();
     useEffect(() => {
         const fecthMovies = async () => {
             try {
-                const params = { keyword: keyword, page: page };
+                const params = { keyword: keyword, page: +page };
                 const response = await MoviesApi.getMoviesSearch(params);
                 setMoviesSearch(response);
             } catch (error) {
                 console.log("Faild to fetch movies", error);
             }
         };
-        window.scrollTo({
-            top: 0,
-        });
         fecthMovies();
     }, [keyword, page]);
 
@@ -31,10 +30,11 @@ const MoviesSearch = () => {
 
     const handleSearchInput = (e) => {
         setKeyword(e.target.value);
+        setPage(1);
     };
 
     const handlePageClick = (event) => {
-        setPage(event.selected);
+        setPage(event.defaultValue + 1);
     };
 
     return (
@@ -53,28 +53,30 @@ const MoviesSearch = () => {
             <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
                 {moviesSearch?.items?.map((movie, index) => {
                     return (
-                        <div className="col" key={movie.slug}>
+                        <div className="col" key={movie?.slug}>
                             <a
                                 href=""
                                 className="card"
                                 onClick={() =>
                                     nagivate(
-                                        `/MoviesWebsite/movie/${movie.slug}`
+                                        `/MoviesWebsite/movie/${movie?.slug}`
                                     )
                                 }
                             >
                                 <div className="card-poster">
                                     <img
-                                        src={movie.thumb_url}
+                                        src={movie?.thumb_url}
                                         className="card-img-top"
                                         alt="..."
                                     />
                                 </div>
 
                                 <div className="card-body">
-                                    <h5 className="card-title">{movie.name}</h5>
+                                    <h5 className="card-title">
+                                        {movie?.name}
+                                    </h5>
                                     <p className="card-text">
-                                        {movie.original_name}
+                                        {movie?.original_name}
                                     </p>
                                 </div>
                             </a>
@@ -102,7 +104,7 @@ const MoviesSearch = () => {
                     containerClassName="pagination"
                     activeClassName="active"
                     renderOnZeroPageCount={null}
-                    forcePage={page}
+                    forcePage={page - 1}
                 />
             </div>
         </div>

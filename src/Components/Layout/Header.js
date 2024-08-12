@@ -6,9 +6,10 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Form, NavLink, useNavigate } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
+import movieGenres from "../MovieGenresList";
 const Header = () => {
     const [showSearchButton, setShowSearchButton] = useState(true);
-
+    const nagivate = useNavigate();
     const handleShowBtnSearch = () => {
         setShowSearchButton(false);
     };
@@ -43,6 +44,29 @@ const Header = () => {
                                 Phim đang chiếu
                             </span>
                         </NavLink>
+
+                        <NavDropdown
+                            id="basic-nav-dropdown"
+                            title={
+                                <span className="nav-link__name">Thể loại</span>
+                            }
+                        >
+                            {movieGenres.map((movieGenre) => {
+                                return (
+                                    <NavDropdown.Item key={movieGenre.id}>
+                                        <div
+                                            onClick={() =>
+                                                nagivate(
+                                                    `/MoviesWebsite/type/${movieGenre.slug}`
+                                                )
+                                            }
+                                        >
+                                            {movieGenre.label}
+                                        </div>
+                                    </NavDropdown.Item>
+                                );
+                            })}
+                        </NavDropdown>
                     </Nav>
                     <Nav>
                         {showSearchButton && (

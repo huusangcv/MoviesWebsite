@@ -17,6 +17,7 @@ import SingleMovies from "./pages/SingleMovies";
 import MovieSeries from "./pages/MovieSeries";
 import MoviesWatching from "./pages/MoviesWatching";
 import MoviesSearch from "./pages/MoviesSearch";
+import MoviesType from "./pages/MoviesType";
 
 function App() {
     return (
@@ -36,9 +37,11 @@ function App() {
                         path="phim-dang-chieu"
                         element={<MoviesWatching />}
                     />
+                    <Route path="type/:slug" element={<MoviesType />} />
                     <Route path="search" element={<MoviesSearch />} />
                     <Route path="movie/:slug" element={<MovieDetail />} />
                     <Route path="watch/:slug" element={<WatchMovie />} />
+
                     <Route path={"*"} element={<NotFound />} />
                 </Route>
             </Routes>

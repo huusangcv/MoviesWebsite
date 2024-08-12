@@ -1,0 +1,136 @@
+const movieGenres = [
+    {
+        id: 1,
+        label: "Hành động",
+        link: "/MoviesWebsite/phim-hanh-dong",
+        slug: "hanh-dong",
+    },
+    {
+        id: 2,
+        label: "Phiêu lưu",
+        link: "/MoviesWebsite/phim-phieu-luu",
+        slug: "phieu-luu",
+    },
+    {
+        id: 3,
+        label: "Hoạt Hình",
+        link: "/MoviesWebsite/phim-hoat-hinh",
+        slug: "hoat-hinh",
+    },
+    {
+        id: 4,
+        label: "Hài",
+        link: "/MoviesWebsite/phim-hai",
+        slug: "phim-hai",
+    },
+    {
+        id: 5,
+        label: "Hình sự",
+        link: "/MoviesWebsite/phim-hinh-su",
+        slug: "hinh-su",
+    },
+    {
+        id: 6,
+        label: "Tài liệu",
+        link: "/MoviesWebsite/phim-tai-lieu",
+        slug: "tai-lieu",
+    },
+    {
+        id: 7,
+        label: "Chính kịch",
+        link: "/MoviesWebsite/phim-chinh-kich",
+        slug: "chinh-kich",
+    },
+    {
+        id: 8,
+        label: "Gia đình",
+        link: "/MoviesWebsite/phim-gia-dinh",
+        slug: "gia-dinh",
+    },
+    {
+        id: 9,
+        label: "Giả tưởng",
+        link: "/MoviesWebsite/phim-gia-tuong",
+        slug: "gia-tuong",
+    },
+    {
+        id: 10,
+        label: "Lịch sử",
+        link: "/MoviesWebsite/phim-lich-su",
+        slug: "lich-su",
+    },
+    {
+        id: 11,
+        label: "Kinh dị",
+        link: "/MoviesWebsite/phim-kinh-di",
+        slug: "kinh-di",
+    },
+    {
+        id: 12,
+        label: "Nhạc",
+        link: "/MoviesWebsite/phim-nhac",
+        slug: "phim-nhac",
+    },
+    {
+        id: 13,
+        label: "Bí ẩn",
+        link: "/MoviesWebsite/phim-bi-an",
+        slug: "bi-an",
+    },
+    {
+        id: 14,
+        label: "Lãng mạn",
+        link: "/MoviesWebsite/phim-lang-man",
+        slug: "lang-man",
+    },
+    {
+        id: 15,
+        label: "Khoa học viễn tưởng",
+        link: "/MoviesWebsite/phim-khoa-hoc-vien-tuong",
+        slug: "khoa-hoc-vien-tuong",
+    },
+    {
+        id: 16,
+        label: "Gây cấn",
+        link: "/MoviesWebsite/phim-gay-can",
+        slug: "gay-can",
+    },
+    {
+        id: 17,
+        label: "Chiến tranh",
+        link: "/MoviesWebsite/phim-chien-tranh",
+        slug: "chien-tranh",
+    },
+    {
+        id: 18,
+        label: "Tâm lý",
+        link: "/MoviesWebsite/phim-tam-ly",
+        slug: "tam-ly",
+    },
+    {
+        id: 19,
+        label: "Tình cảm",
+        link: "/MoviesWebsite/phim-tinh-cam",
+        slug: "tinh-cam",
+    },
+    {
+        id: 20,
+        label: "Cổ trang",
+        link: "/MoviesWebsite/phim-co-trang",
+        slug: "co-trang",
+    },
+    {
+        id: 21,
+        label: "Miền Tây",
+        link: "/MoviesWebsite/phim-mien-tay",
+        slug: "mien-tay",
+    },
+    {
+        id: 22,
+        label: "Phim 18+",
+        link: "/MoviesWebsite/phim-18",
+        slug: "phim-18",
+    },
+];
+
+export default movieGenres;

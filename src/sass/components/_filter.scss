@@ -1,0 +1,19 @@
+.movie__filter {
+    margin: 20px 0;
+    background: #091c2d;
+    padding: 15px;
+    border-radius: 12px;
+
+    .filter {
+        &__title {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+    }
+
+    .form-select-lg {
+        margin-top: 8px;
+        font-size: 1.8rem;
+    }
+}

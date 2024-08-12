@@ -28,5 +28,9 @@ const MoviesApi = {
         const url = `/films/search`;
         return axiosClient.get(url, { params });
     },
+    getMoviesType: (slug, params) => {
+        const url = `/films/the-loai/${slug}`;
+        return axiosClient.get(url, { params });
+    },
 };
 export default MoviesApi;

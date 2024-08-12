@@ -96,7 +96,7 @@ const MovieDetail = (props) => {
                                         QUỐC GIA
                                     </div>
                                     <div className="MovieDetail__dd">
-                                        {movie.category[4].list[0].name}
+                                        {movie?.category[4]?.list[0].name}
                                     </div>
                                 </div>
                                 <div className="MovieDetail__row">

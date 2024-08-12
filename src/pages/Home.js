@@ -23,11 +23,11 @@ const Home = () => {
                 <div>Loading...</div>
             ) : (
                 <>
-                    <SingleMovies />
+                    {/* <SingleMovies />{/*
                     <div style={{ marginTop: "15px" }}></div>
                     <MovieSeries />
                     <div style={{ marginTop: "15px" }}></div>
-                    <MoviesWatching />
+                    <MoviesWatching /> */}
                 </>
             )}
         </>

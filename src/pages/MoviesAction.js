@@ -5,10 +5,8 @@ import { Pagination } from "react-bootstrap";
 import { PaginationControl } from "react-bootstrap-pagination-control";
 import ReactPaginate from "react-paginate";
 
-const SingleMovies = () => {
+const MoviesType = () => {
     const [movie, setMovie] = useState([]);
-    const [movie2, setMovie2] = useState([]);
-    const [movie3, setMovie3] = useState([]);
     const nagivate = useNavigate();
     const [page, setPage] = useState(1);
     const pageCount = +movie?.paginate?.total_page;
@@ -16,7 +14,7 @@ const SingleMovies = () => {
         const fecthMovies = async () => {
             try {
                 const params = { page: +page };
-                const response = await MoviesApi.getMoviesSingle(params);
+                const response = await MoviesApi.MoviesType(params);
                 setMovie(response);
             } catch (error) {
                 console.log("Faild to fetch movies", error);
@@ -202,4 +200,4 @@ const SingleMovies = () => {
     );
 };
 
-export default SingleMovies;
+export default MoviesType;
