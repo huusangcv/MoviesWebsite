@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { ButtonGroup, FormControl } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Form, NavLink, useNavigate } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import movieGenres from "../MovieGenresList";
+import movieGenresNations from "../MoviesGenresListNations";
+import movieYears from "../MoviesGenresListYears";
 const Header = () => {
     const [showSearchButton, setShowSearchButton] = useState(true);
     const nagivate = useNavigate();
@@ -62,6 +62,51 @@ const Header = () => {
                                             }
                                         >
                                             {movieGenre.label}
+                                        </div>
+                                    </NavDropdown.Item>
+                                );
+                            })}
+                        </NavDropdown>
+
+                        <NavDropdown
+                            id="basic-nav-dropdown"
+                            title={
+                                <span className="nav-link__name">Quốc gia</span>
+                            }
+                        >
+                            {movieGenresNations.map((movieGenresNation) => {
+                                return (
+                                    <NavDropdown.Item
+                                        key={movieGenresNation.id}
+                                    >
+                                        <div
+                                            onClick={() =>
+                                                nagivate(
+                                                    `/MoviesWebsite/type/${movieGenresNation.slug}`
+                                                )
+                                            }
+                                        >
+                                            {movieGenresNation.label}
+                                        </div>
+                                    </NavDropdown.Item>
+                                );
+                            })}
+                        </NavDropdown>
+                        <NavDropdown
+                            id="basic-nav-dropdown"
+                            title={<span className="nav-link__name">Năm</span>}
+                        >
+                            {movieYears.map((movieYear) => {
+                                return (
+                                    <NavDropdown.Item key={movieYear.id}>
+                                        <div
+                                            onClick={() =>
+                                                nagivate(
+                                                    `/MoviesWebsite/type/${movieYear.slug}`
+                                                )
+                                            }
+                                        >
+                                            {movieYear.label}
                                         </div>
                                     </NavDropdown.Item>
                                 );

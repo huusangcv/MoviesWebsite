@@ -1,0 +1,130 @@
+const movieYears = [
+    {
+        id: 1,
+        label: "2004",
+        link: "/MoviesWebsite/phim-2004",
+        slug: "2004",
+    },
+    {
+        id: 2,
+        label: "2005",
+        link: "/MoviesWebsite/phim-2005",
+        slug: "2005",
+    },
+    {
+        id: 3,
+        label: "2006",
+        link: "/MoviesWebsite/phim-2006",
+        slug: "2006",
+    },
+    {
+        id: 4,
+        label: "2007",
+        link: "/MoviesWebsite/phim-2007",
+        slug: "2007",
+    },
+    {
+        id: 5,
+        label: "2008",
+        link: "/MoviesWebsite/phim-2008",
+        slug: "2008",
+    },
+    {
+        id: 6,
+        label: "2009",
+        link: "/MoviesWebsite/phim-2009",
+        slug: "2009",
+    },
+    {
+        id: 7,
+        label: "2010",
+        link: "/MoviesWebsite/phim-2010",
+        slug: "2010",
+    },
+    {
+        id: 8,
+        label: "2011",
+        link: "/MoviesWebsite/phim-2011",
+        slug: "2011",
+    },
+    {
+        id: 9,
+        label: "2012",
+        link: "/MoviesWebsite/phim-2012",
+        slug: "2012",
+    },
+    {
+        id: 10,
+        label: "2013",
+        link: "/MoviesWebsite/phim-2013",
+        slug: "2013",
+    },
+    {
+        id: 11,
+        label: "2014",
+        link: "/MoviesWebsite/phim-2014",
+        slug: "2014",
+    },
+    {
+        id: 12,
+        label: "2015",
+        link: "/MoviesWebsite/phim-2015",
+        slug: "2015",
+    },
+    {
+        id: 13,
+        label: "2016",
+        link: "/MoviesWebsite/phim-2016",
+        slug: "2016",
+    },
+    {
+        id: 14,
+        label: "2017",
+        link: "/MoviesWebsite/phim-2017",
+        slug: "2017",
+    },
+    {
+        id: 15,
+        label: "2018",
+        link: "/MoviesWebsite/phim-2018",
+        slug: "2018",
+    },
+    {
+        id: 16,
+        label: "2019",
+        link: "/MoviesWebsite/phim-2019",
+        slug: "2019",
+    },
+    {
+        id: 17,
+        label: "2020",
+        link: "/MoviesWebsite/phim-2020",
+        slug: "2020",
+    },
+    {
+        id: 18,
+        label: "2021",
+        link: "/MoviesWebsite/phim-2021",
+        slug: "2021",
+    },
+    {
+        id: 19,
+        label: "2022",
+        link: "/MoviesWebsite/phim-2022",
+        slug: "2022",
+    },
+    {
+        id: 20,
+        label: "2023",
+        link: "/MoviesWebsite/phim-2023",
+        slug: "2023",
+    },
+    {
+        id: 21,
+        label: "2024",
+        link: "/MoviesWebsite/phim-2024",
+        slug: "2024",
+    },
+];
+
+export default movieYears;
