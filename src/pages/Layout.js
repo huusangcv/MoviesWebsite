@@ -7,25 +7,19 @@ import Header from "../components/Layout/Header";
 import Movies from "./MoviesWatching";
 import Footer from "../components/Layout/Footer";
 const Layout = (props) => {
-    // const [movieDetail, setMovieDetail] = useState([]);
-    // const nagivate = useNavigate();
-    // // useEffect(() => {
-    // //     const fetchMovieDetail = async (slug) => {
-    // //         try {
-    // //             const response = await MoviesApi.getMovieDetail(slug);
-    // //             console.log(response);
-    // //             setMovieDetail(response);
-    // //         } catch (error) {
-    // //             console.log("Faild to fetch movies", error);
-    // //         }
-    // //     };
-    // //     fetchMovieDetail();
-    // // }, []);
+    const [showSearchButton, setShowSearchButton] = useState(true);
+
+    const handleShowBtnSearch = () => {
+        setShowSearchButton(false);
+    };
 
     return (
         <>
             <div className="app-container">
-                <Header />
+                <Header
+                    showSearchButton={showSearchButton}
+                    setShowSearchButton={setShowSearchButton}
+                />
                 <section className="movies">
                     <div className="movies__filter"></div>
                     <Outlet />

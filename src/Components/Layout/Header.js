@@ -7,12 +7,8 @@ import { IoSearch } from "react-icons/io5";
 import movieGenres from "../MovieGenresList";
 import movieGenresNations from "../MoviesGenresListNations";
 import movieYears from "../MoviesGenresListYears";
-const Header = () => {
-    const [showSearchButton, setShowSearchButton] = useState(true);
+const Header = ({ showSearchButton, setShowSearchButton }) => {
     const nagivate = useNavigate();
-    const handleShowBtnSearch = () => {
-        setShowSearchButton(false);
-    };
 
     return (
         <div className="position-fixed-header">
@@ -31,12 +27,18 @@ const Header = () => {
                             <NavLink
                                 className="nav-link"
                                 to="/MoviesWebsite/phim-le"
+                                onClick={() => {
+                                    setShowSearchButton(true);
+                                }}
                             >
                                 <span className="nav-link__name">Phim lẻ</span>
                             </NavLink>
                             <NavLink
                                 className="nav-link"
                                 to="/MoviesWebsite/phim-bo"
+                                onClick={() => {
+                                    setShowSearchButton(true);
+                                }}
                             >
                                 <span className="nav-link__name">Phim bộ</span>
                             </NavLink>
@@ -44,6 +46,9 @@ const Header = () => {
                             <NavLink
                                 className="nav-link"
                                 to="/MoviesWebsite/phim-dang-chieu"
+                                onClick={() => {
+                                    setShowSearchButton(true);
+                                }}
                             >
                                 <span className="nav-link__name">Phim mới</span>
                             </NavLink>
@@ -56,21 +61,28 @@ const Header = () => {
                                     </span>
                                 }
                             >
-                                {movieGenres.map((movieGenre) => {
-                                    return (
-                                        <NavDropdown.Item key={movieGenre.id}>
-                                            <div
-                                                onClick={() =>
-                                                    nagivate(
-                                                        `/MoviesWebsite/type/${movieGenre.slug}`
-                                                    )
-                                                }
+                                <div className="dropdown__type">
+                                    {movieGenres.map((movieGenre) => {
+                                        return (
+                                            <NavDropdown.Item
+                                                key={movieGenre.id}
                                             >
-                                                {movieGenre.label}
-                                            </div>
-                                        </NavDropdown.Item>
-                                    );
-                                })}
+                                                <div
+                                                    onClick={() => {
+                                                        nagivate(
+                                                            `/MoviesWebsite/type/${movieGenre.slug}`
+                                                        );
+                                                        setShowSearchButton(
+                                                            true
+                                                        );
+                                                    }}
+                                                >
+                                                    {movieGenre.label}
+                                                </div>
+                                            </NavDropdown.Item>
+                                        );
+                                    })}{" "}
+                                </div>
                             </NavDropdown>
 
                             <NavDropdown
@@ -134,7 +146,7 @@ const Header = () => {
                                     className="nav-link"
                                     to="/MoviesWebsite/search"
                                     onClick={() => {
-                                        handleShowBtnSearch();
+                                        setShowSearchButton(false);
                                     }}
                                 >
                                     <span className="nav-link__search">
@@ -145,7 +157,7 @@ const Header = () => {
                             )}
                         </Nav>
                         <Nav>
-                            <>
+                            {/* <>
                                 <button
                                     className="btn-login btn "
                                     onClick={() => {
@@ -154,17 +166,19 @@ const Header = () => {
                                 >
                                     Đăng nhập
                                 </button>
-                            </>
-                            {/* <NavDropdown
+                            </> */}
+                            <NavDropdown
                                 id="basic-nav-dropdown"
                                 title={
-                                    <span className="nav-link__name">Hữu Sang</span>
+                                    <span className="nav-link__name">
+                                        Hữu Sang
+                                    </span>
                                 }
                             >
                                 <NavDropdown.Item>Profile</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item>Logout</NavDropdown.Item>
-                            </NavDropdown> */}
+                            </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

@@ -71,7 +71,7 @@ const movieData = [
         title: "Kingdom of the Planet of the Apes",
         topic: "Hành tinh khỉ: Vương quốc mới",
         description:
-            "Đạo diễn Wes Ball mang một hơi thở mới đến loạt phim điện ảnh danh tiếng này. Lấy bối cảnh nhiều đời sau sự ra đi của Vua Khỉ Caesar, hành tinh này là nơi loài khỉ thống trị, còn loài người dần lui về trong bóng tối. Khi một thủ lĩnh khỉ có tên Proximus Caesar xây dựng đế chế của mình, chú khỉ trẻ tuổi Noa bắt đầu một hành trình gian khổ, đặt câu hỏi về tất cả những gì anh ta đã biết về quá khứ và đưa ra những lựa chọn định hình lại tương lai cho cả loài khỉ và loài người.",
+            "Lấy bối cảnh nhiều đời sau sự ra đi của Vua Khỉ Caesar, hành tinh này là nơi loài khỉ thống trị, còn loài người dần lui về trong bóng tối.",
         thumbnailImage: img5,
         thumbnailTitle: "Kingdom of the Planet of the Apes",
         thumbnailDescription: "Hành tinh khỉ: Vương quốc mới",

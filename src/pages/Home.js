@@ -9,42 +9,42 @@ import MovieSeries from "./MovieSeries";
 import SingleMovies from "./SingleMovies";
 import NewMovies from "./NewMovies";
 import SliderComponent from "../components/SilderComponents/SliderComponent";
-const Home = () => {
+const Home = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [movieNew, setMovieNew] = useState([]);
     const [movieSlug, setMovieSlug] = useState([]);
-    // const nagivate = useNavigate();
-    useEffect(() => {
-        const fecthMovies = async () => {
-            try {
-                const params = { page: 1 };
-                const response = await MoviesApi.getMovieNew(params);
-                setMovieNew(response);
-            } catch (error) {
-                console.log("Faild to fetch movies", error);
-            }
-        };
-        window.scrollTo({
-            top: 0,
-        });
-        fecthMovies();
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2000); // 2 seconds delay
+    console.log(props);
+    // // const nagivate = useNavigate();
+    // useEffect(() => {
+    //     const fecthMovies = async () => {
+    //         try {
+    //             const params = { page: 1 };
+    //             const response = await MoviesApi.getMovieNew(params);
+    //             setMovieNew(response);
+    //         } catch (error) {
+    //             console.log("Faild to fetch movies", error);
+    //         }
+    //     };
+    //     window.scrollTo({
+    //         top: 0,
+    //     });
+    //     fecthMovies();
+    //     const timer = setTimeout(() => {
+    //         setIsLoading(false);
+    //     }, 3000); // 2 seconds delay
 
-        return () => clearTimeout(timer);
-    }, []);
+    //     return () => clearTimeout(timer);
+    // }, []);
 
     return (
         <>
-            {isLoading ? (
+            {/* {isLoading ? (
                 <div>Loading...</div>
             ) : (
                 <>
-                    {/* <NewMovies movieNew={movieNew} /> */}
-                    <SliderComponent />
                 </>
-            )}
+            )} */}
+            <SliderComponent />
         </>
     );
 };
