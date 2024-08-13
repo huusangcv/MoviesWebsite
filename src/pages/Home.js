@@ -8,6 +8,7 @@ import MoviesWatching from "./MoviesWatching";
 import MovieSeries from "./MovieSeries";
 import SingleMovies from "./SingleMovies";
 import NewMovies from "./NewMovies";
+import SliderComponent from "../components/SilderComponents/SliderComponent";
 const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [movieNew, setMovieNew] = useState([]);
@@ -40,7 +41,8 @@ const Home = () => {
                 <div>Loading...</div>
             ) : (
                 <>
-                    <NewMovies movieNew={movieNew} />
+                    {/* <NewMovies movieNew={movieNew} /> */}
+                    <SliderComponent />
                 </>
             )}
         </>
