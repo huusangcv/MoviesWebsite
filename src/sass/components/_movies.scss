@@ -50,8 +50,6 @@
     position: absolute;
     width: 100vw;
     background: rgba($color: #06121e, $alpha: 1);
-    min-height: 200px;
-    height: 600px;
     background-repeat: no-repeat !important;
     top: 500px;
 
@@ -60,7 +58,7 @@
         align-items: center;
         gap: 50px;
         position: absolute;
-        top: -55px;
+        top: 0;
         right: 50%;
         translate: 50% -50%;
         width: 80%;
@@ -80,7 +78,6 @@
 
     &__content {
         align-self: center;
-        margin-top: -30px;
     }
 
     &__title {

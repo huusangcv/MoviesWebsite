@@ -21,10 +21,10 @@ const Header = () => {
                     <Navbar.Brand href="/MoviesWebsite" className="logo">
                         <span className="logo__name">Movies</span>
                     </Navbar.Brand>
-                    <Navbar.Toggle
+                    {/* <Navbar.Toggle
                         aria-controls="basic-navbar-nav"
                         className="btn-toggle"
-                    />
+                    /> */}
                     <Navbar.Toggle className="btn-toggle"></Navbar.Toggle>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">

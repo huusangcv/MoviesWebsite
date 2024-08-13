@@ -13,26 +13,14 @@ a {
 }
 
 header {
-    width: 1140px;
-    max-width: 80%;
-    margin: auto;
     height: 50px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 100;
 }
 
-header a {
-    color: #eee;
-    margin-right: 40px;
-}
 
 /* carousel */
 .carousel {
     height: 100vh;
     margin-top: -50px;
-    width: 100vw;
     overflow: hidden;
     position: relative;
 }
@@ -110,6 +98,7 @@ header a {
     z-index: 100;
     display: flex;
     gap: 20px;
+    transition: 0.2s all;
 }
 
 .thumbnail .item {
@@ -346,5 +335,17 @@ header a {
 
     .carousel .list .item .content .title {
         font-size: 30px;
+    }
+}
+
+.des {
+    line-height: 1.5;
+}
+
+.btn-switch-page {
+    svg {
+        width: 24px;
+        height: 24px;
+        font-weight: 600;
     }
 }
