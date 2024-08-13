@@ -32,5 +32,13 @@ const MoviesApi = {
         const url = `/films/the-loai/${slug}`;
         return axiosClient.get(url, { params });
     },
+    getAllMovies: () => {
+        const url = `films/phim-moi-cap-nhat`;
+        return axiosClient.get(url);
+    },
+    getMoviesIntroduce: (slug, params) => {
+        const url = `films/nam-phat-hanh/2024/${slug}`;
+        return axiosClient.get(url, { params });
+    },
 };
 export default MoviesApi;

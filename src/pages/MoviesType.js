@@ -10,7 +10,6 @@ const MoviesType = () => {
     const [page, setPage] = useState(1);
     const nagivate = useNavigate();
     const { slug } = useParams();
-    const [slugOld, setSlugOld] = useState(slug);
     const pageCount = +movie?.paginate?.total_page;
 
     useEffect(() => {
@@ -38,6 +37,7 @@ const MoviesType = () => {
     const handlePageClick = (event) => {
         setPage(event.selected + 1);
     };
+    console.log(movie);
 
     if (!movie) {
         return <div>Loading...</div>;
@@ -46,7 +46,7 @@ const MoviesType = () => {
     return (
         <>
             <div className="container">
-                <div className="movie__filter">
+                {/* <div className="movie__filter">
                     <div className="row row-cols-xll-1 g-5">
                         <div className="col">
                             <div className="filter__group">
@@ -145,8 +145,11 @@ const MoviesType = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <h2 className="movies__title"> {`Phim ${movie?.cat?.name}`}</h2>
+                </div> */}
+                <h2 className="movies__title">
+                    {" "}
+                    {`Phim ${movie?.cat?.title}`}
+                </h2>
                 <div className="horizontal"></div>
                 <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
                     {movie?.items?.map((movie, index) => {

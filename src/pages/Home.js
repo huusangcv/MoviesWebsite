@@ -10,21 +10,37 @@ import SingleMovies from "./SingleMovies";
 import NewMovies from "./NewMovies";
 const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
-
+    const [movieNew, setMovieNew] = useState([]);
+    const [movieSlug, setMovieSlug] = useState([]);
+    // const nagivate = useNavigate();
     useEffect(() => {
+        const fecthMovies = async () => {
+            try {
+                const params = { page: 1 };
+                const response = await MoviesApi.getMovieNew(params);
+                setMovieNew(response);
+            } catch (error) {
+                console.log("Faild to fetch movies", error);
+            }
+        };
+        window.scrollTo({
+            top: 0,
+        });
+        fecthMovies();
         const timer = setTimeout(() => {
             setIsLoading(false);
         }, 2000); // 2 seconds delay
 
         return () => clearTimeout(timer);
     }, []);
+
     return (
         <>
             {isLoading ? (
                 <div>Loading...</div>
             ) : (
                 <>
-                    <NewMovies />
+                    <NewMovies movieNew={movieNew} />
                 </>
             )}
         </>

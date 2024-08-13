@@ -34,7 +34,9 @@ const MoviesWatching = (props) => {
     }
     return (
         <div className="container">
-            <h2 className="movies__title">{moviesWatching?.cat?.name}</h2>
+            <h2 className="movies__title">
+                {moviesWatching?.cat?.name} {}
+            </h2>
             <div className="horizontal"></div>
             <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
                 {moviesWatching?.items?.map((movie, index) => {

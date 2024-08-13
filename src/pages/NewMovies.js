@@ -3,43 +3,48 @@ import MoviesApi from "../api/moviesApi";
 import { useNavigate } from "react-router-dom";
 import { Pagination } from "react-bootstrap";
 
-const NewMovies = () => {
-    const [movieNew, setMovieNew] = useState([]);
-
+const NewMovies = (props) => {
+    const [movieSlug, setMovieSlug] = useState([]);
+    // console.log(props);
     const nagivate = useNavigate();
-    useEffect(() => {
-        const fecthMovies = async () => {
-            try {
-                const params = { page: 1 };
-                const response = await MoviesApi.getMovieNew(params);
-                setMovieNew(response);
-            } catch (error) {
-                console.log("Faild to fetch movies", error);
-            }
-        };
-        window.scrollTo({
-            top: 0,
-        });
-        fecthMovies();
-    }, []);
+    // useEffect(() => {
+    //     const fecthMovies = async () => {
+    //         try {
+    //             const params = { page: 1 };
+    //             const response = await MoviesApi.getMovieNew(params);
+    //             setMovieNew(response);
+    //             // const data = await MoviesApi.getMovieDetail(params);
+    //             // setMovieSlug(data);
+    //             // console.log(movieSlug);
+    //         } catch (error) {
+    //             console.log("Faild to fetch movies", error);
+    //         }
+    //     };
+    //     window.scrollTo({
+    //         top: 0,
+    //     });
+    //     fecthMovies();
+    // }, []);
 
-    if (!movieNew) {
-        return <div>Loading...</div>;
-    }
+    // if (!movieNew) {
+    //     return <div>Loading...</div>;
+    // }
     return (
         <div className="container">
             <div className="d-flex justify-content-between align-items-end">
                 <h2 className="movies__title">Phim bộ mới</h2>
                 <div
                     className="movies__link"
-                    onClick={() => nagivate("/phim-bo")}
+                    // onClick={() => nagivate("/phim-bo")}
                 >
                     Xem tất cả
                 </div>
             </div>
             <div className="horizontal"></div>
             <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
-                {movieNew?.items?.map((movie, index) => {
+                {/* {movieNew?.items?.map((movie, index) => {
+                    // console.log(movie.slug);
+                    // setMovieSlug(movie.slug);
                     return (
                         <div className="col" key={movie.slug}>
                             <a
@@ -68,7 +73,7 @@ const NewMovies = () => {
                             </a>
                         </div>
                     );
-                })}
+                })} */}
             </div>
         </div>
     );

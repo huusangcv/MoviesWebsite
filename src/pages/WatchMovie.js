@@ -19,10 +19,8 @@ const WatchMovie = () => {
                 console.error("Error fetching movie:", error);
             }
         };
+        window.scroll(0, 0);
         fetchMovie();
-        window.scrollTo({
-            top: 0,
-        });
     }, [slug]);
 
     const [defaultValueEpisode, setdefaultValueEpisode] = useState(0);

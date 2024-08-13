@@ -40,7 +40,7 @@
 
     &__episodes {
         margin-top: 30px;
-
+        height: 700px;
 
         &-server {
             padding: 10px;
@@ -57,9 +57,11 @@
         }
 
         &-btns {
+            height: auto;
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
+            overflow: auto;
         }
 
         &-btn {

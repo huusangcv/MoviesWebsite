@@ -1,8 +1,7 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import MoviesApi from "../api/moviesApi";
 import { useNavigate, useParams } from "react-router-dom";
-import { FaPlay } from "react-icons/fa";
-
+import { FaPlay, FaFacebookF } from "react-icons/fa";
 const MovieDetail = (props) => {
     const { slug } = useParams();
     const [movie, setMovie] = useState(null);
@@ -25,18 +24,6 @@ const MovieDetail = (props) => {
     }, [slug]);
 
     const nameOf2024 = category["3"]?.list[0]?.name;
-    console.log(nameOf2024);
-    // for (const groupKey in category) {
-    //     const group = category[groupKey];
-    //     console.log(`Nhóm ${group}:`);
-
-    //     // Duyệt qua các phần tử trong danh sách
-    //     // for (const item of group.list) {
-    //     //     console.log(`- ${item.name} (ID: ${item.id})`);
-    //     // }
-
-    //     // console.log();
-    // }
 
     if (!movie) {
         return <div>Loading...</div>;
@@ -46,7 +33,7 @@ const MovieDetail = (props) => {
         <>
             <div className="MovieDetail__poster">
                 <img
-                    src={movie.poster_url}
+                    src={movie?.poster_url}
                     alt=""
                     className="MovieDetail__poster-img"
                 />
@@ -55,7 +42,6 @@ const MovieDetail = (props) => {
                 <div className="container">
                     <div className="MovieDetail__info">
                         <div className="MovieDetail__absolute">
-                            {" "}
                             <div>
                                 <img
                                     src={movie.thumb_url}
@@ -91,8 +77,58 @@ const MovieDetail = (props) => {
                                     <span className="MovieDetail__quality">
                                         {movie.quality}
                                     </span>
+
+                                    <span>
+                                        {/* {(movie.current_episode === "FULL" &&
+                                            movie.current_episode) ||
+                                            parseInt(
+                                                movie.current_episode.replace(
+                                                    "Tập ",
+                                                    ""
+                                                ) / movie.total_episodes
+                                            )} */}
+                                        {movie.current_episode}
+                                    </span>
                                 </p>
+
                                 <div className="MovieDetail__manufacture d-flex justify-content-between align-items-end">
+                                    <div>
+                                        <div class="level-item">
+                                            <a
+                                                href="https://www.facebook.com/huusangvn"
+                                                class="fb-share button is-link"
+                                                target="_blank"
+                                            >
+                                                <FaFacebookF />
+                                                Chia sẻ
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="MovieDetail__row row-round">
+                                        {movie?.category["1"]?.list &&
+                                            movie?.category["1"]?.list?.map(
+                                                (item) => {
+                                                    return (
+                                                        <div className="MovieDetail__dd dd-rounded">
+                                                            {item.name}
+                                                        </div>
+                                                    );
+                                                }
+                                            )}
+                                        {movie?.category["2"]?.list &&
+                                            movie?.category["2"]?.list?.map(
+                                                (item) => {
+                                                    return (
+                                                        <div className="MovieDetail__dd dd-rounded">
+                                                            {item?.name}
+                                                        </div>
+                                                    );
+                                                }
+                                            )}
+                                    </div>
+                                </div>
+
+                                <div className="MovieDetail__border-desc">
                                     <div>
                                         <div className="MovieDetail__row">
                                             <div className="MovieDetail__dt">
@@ -109,10 +145,15 @@ const MovieDetail = (props) => {
                                                 QUỐC GIA
                                             </div>
                                             <div className="MovieDetail__dd">
-                                                {
-                                                    movie?.category[4]?.list[0]
-                                                        .name
-                                                }
+                                                {movie?.category[
+                                                    "4"
+                                                ]?.list?.map((item) => {
+                                                    return (
+                                                        <span>
+                                                            {item?.name}
+                                                        </span>
+                                                    );
+                                                })}
                                             </div>
                                         </div>
 
@@ -125,22 +166,10 @@ const MovieDetail = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="MovieDetail__row row-round">
-                                        {movie?.category["1"]?.list.map(
-                                            (item) => {
-                                                return (
-                                                    <div className="MovieDetail__dd dd-rounded">
-                                                        {item.name}
-                                                    </div>
-                                                );
-                                            }
-                                        )}
-                                    </div>
+                                    <p className="MovieDetail__desc">
+                                        {movie.description}
+                                    </p>
                                 </div>
-
-                                <p className="MovieDetail__desc">
-                                    {movie.description}
-                                </p>
                             </div>
                         </div>
                     </div>
