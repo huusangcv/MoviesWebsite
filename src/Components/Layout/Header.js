@@ -114,7 +114,6 @@ const Header = ({
                                                         setShowSearchButton(
                                                             true
                                                         );
-                                                        handleShowToggle();
                                                     }}
                                                 >
                                                     {movieGenre.label}
@@ -144,7 +143,6 @@ const Header = ({
                                                         `/MoviesWebsite/type/${movieGenresNation.slug}`
                                                     );
                                                     setShowSearchButton(true);
-                                                    handleShowToggle();
                                                 }}
                                             >
                                                 {movieGenresNation.label}
