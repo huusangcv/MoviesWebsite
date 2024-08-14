@@ -9,7 +9,7 @@ const MoviesType = () => {
     const [movie, setMovie] = useState([]);
     const nagivate = useNavigate();
     const [page, setPage] = useState(1);
-    const pageCount = +movie?.paginate?.total_page;
+    const pageCount = Math.ceil(+movie?.paginate?.total_page);
     useEffect(() => {
         const fecthMovies = async () => {
             try {
@@ -42,7 +42,7 @@ const MoviesType = () => {
                             <div className="filter__group">
                                 <h3 className="filter__title">Loại Phim</h3>
                                 <select
-                                    class="form-select form-select-lg mb-3"
+                                    className="form-select form-select-lg mb-3"
                                     aria-label=".form-select-lg example"
                                 >
                                     <option defaultValue>- Tất cả -</option>
@@ -55,7 +55,7 @@ const MoviesType = () => {
                             <div className="filter__group">
                                 <h3 className="filter__title">Thể loại:</h3>
                                 <select
-                                    class="form-select form-select-lg mb-3"
+                                    className="form-select form-select-lg mb-3"
                                     aria-label=".form-select-lg example"
                                 >
                                     <option defaultValue>- Tất cả -</option>
@@ -85,7 +85,7 @@ const MoviesType = () => {
                             <div className="filter__group">
                                 <h3 className="filter__title"> Quốc gia: </h3>
                                 <select
-                                    class="form-select form-select-lg mb-3"
+                                    className="form-select form-select-lg mb-3"
                                     aria-label=".form-select-lg example"
                                 >
                                     <option defaultValue>- Tất cả -</option>
@@ -106,7 +106,7 @@ const MoviesType = () => {
                             <div className="filter__group">
                                 <h3 className="filter__title">Năm:</h3>
                                 <select
-                                    class="form-select form-select-lg mb-3"
+                                    className="form-select form-select-lg mb-3"
                                     aria-label=".form-select-lg example"
                                 >
                                     <option defaultValue>- Tất cả -</option>

@@ -19,7 +19,10 @@ const MovieSeries = () => {
             }
         };
         window.scrollTo(0, 0);
-        fecthMovies();
+        let timer = setTimeout(() => {
+            fecthMovies();
+        }, 500);
+        return () => clearTimeout(timer);
     }, [page]);
     const handlePageClick = (event) => {
         setPage(event.selected + 1);

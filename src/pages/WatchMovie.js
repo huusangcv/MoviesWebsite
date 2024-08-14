@@ -20,7 +20,10 @@ const WatchMovie = () => {
             }
         };
         window.scroll(0, 0);
-        fetchMovie();
+        let timer = setTimeout(() => {
+            fetchMovie();
+        }, 1000);
+        return () => clearTimeout(timer);
     }, [slug]);
 
     const [defaultValueEpisode, setdefaultValueEpisode] = useState(0);

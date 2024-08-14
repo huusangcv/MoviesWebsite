@@ -8,7 +8,7 @@ const MoviesSearch = () => {
     const [moviesSearch2, setMoviesSearch2] = useState([]);
     const [moviesSearch3, setMoviesSearch3] = useState([]);
     const [page, setPage] = useState(1);
-    const pageCount = +moviesSearch?.paginate?.total_page;
+    const pageCount = Math.ceil(+moviesSearch?.paginate?.total_page);
     const [keyword, setKeyword] = useState("");
     const nagivate = useNavigate();
     useEffect(() => {
@@ -40,8 +40,8 @@ const MoviesSearch = () => {
 
     return (
         <div className="container">
-            <div class="input-group">
-                <div class="form-outline" data-mdb-input-init>
+            <div className="input-group">
+                <div className="form-outline" data-mdb-input-init>
                     <input
                         type="search"
                         id="form1"

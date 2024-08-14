@@ -35,9 +35,9 @@ const Home = (props) => {
 
     //     return () => clearTimeout(timer);
     // }, []);
-    setTimeout(() => {
-        setIsLoading(false);
-    }, 3000);
+    // setTimeout(() => {
+    //     setIsLoading(false);
+    // }, 3000);
 
     return (
         <>

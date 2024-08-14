@@ -93,10 +93,10 @@ const MovieDetail = (props) => {
 
                                 <div className="MovieDetail__manufacture d-flex justify-content-between align-items-end">
                                     <div>
-                                        <div class="level-item">
+                                        <div className="level-item">
                                             <a
                                                 href="https://www.facebook.com/huusangvn"
-                                                class="fb-share button is-link"
+                                                className="fb-share button is-link"
                                                 target="_blank"
                                             >
                                                 <FaFacebookF />

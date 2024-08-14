@@ -7,7 +7,7 @@ const MoviesWatching = (props) => {
     const nagivate = useNavigate();
     const [moviesWatching, setMoviesWatching] = useState([]);
     const [page, setPage] = useState(1);
-    const pageCount = +moviesWatching?.paginate?.total_page;
+    const pageCount = Math.ceil(+moviesWatching?.paginate?.total_page);
     useEffect(() => {
         const fecthMovies = async () => {
             try {
@@ -22,7 +22,10 @@ const MoviesWatching = (props) => {
             document.title = moviesWatching?.cat?.title;
         }
         window.scrollTo(0, 0);
-        fecthMovies();
+        let timer = setTimeout(() => {
+            fecthMovies();
+        }, 100);
+        return () => clearTimeout(timer);
     }, [page]);
 
     const handlePageClick = (event) => {
