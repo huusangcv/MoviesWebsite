@@ -26,13 +26,32 @@ const Header = ({
         <div className="position-fixed-header">
             <header className="header">
                 <Navbar expand="lg" className="nav-bar">
-                    <Navbar.Brand
-                        href="/MoviesWebsite"
-                        className="logo"
-                        // onClick={() => handleShowToggle()}
-                    >
-                        <span className="logo__name">Movies</span>
-                    </Navbar.Brand>
+                    <div className="d-flex align-items-center">
+                        <Navbar.Brand
+                            href="/MoviesWebsite"
+                            className="logo"
+                            // onClick={() => handleShowToggle()}
+                        >
+                            <span className="logo__name">Movies</span>
+                        </Navbar.Brand>
+
+                        <Navbar.Brand>
+                            {showSearchButton && (
+                                <div
+                                    className="nav-link search"
+                                    onClick={() => {
+                                        setShowSearchButton(false);
+                                        nagivate("/MoviesWebsite/search");
+                                    }}
+                                >
+                                    <span className="nav-link__search">
+                                        <IoSearch />
+                                        Tìm kiếm
+                                    </span>
+                                </div>
+                            )}
+                        </Navbar.Brand>
+                    </div>
                     {/* <Navbar.Toggle
                         aria-controls="basic-navbar-nav"
                         className="btn-toggle"
@@ -208,23 +227,6 @@ const Header = ({
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
-
-                    <Navbar.Brand>
-                        {showSearchButton && (
-                            <div
-                                className="nav-link"
-                                onClick={() => {
-                                    setShowSearchButton(false);
-                                    nagivate("/MoviesWebsite/search");
-                                }}
-                            >
-                                <span className="nav-link__search">
-                                    <IoSearch />
-                                    Tìm kiếm
-                                </span>
-                            </div>
-                        )}
-                    </Navbar.Brand>
                 </Navbar>
             </header>
         </div>

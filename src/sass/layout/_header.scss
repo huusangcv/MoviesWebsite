@@ -10,6 +10,22 @@
     padding: 0 20px;
     z-index: 999;
 
+
+    @media (max-width: 575px) {
+        .logo__name {
+            font-size: 2.3rem;
+        }
+
+        .toggle {
+            width: 26px;
+            he: 26px;
+
+        }
+
+    }
+
+
+
     .nav-link__search {
         display: flex;
         align-items: center;
@@ -17,6 +33,10 @@
         font-size: 1.9rem;
         color: #fff;
         font-weight: 400;
+
+        @media (max-width: 575px) {
+            font-size: 1.6rem;
+        }
 
         &:hover {
             color: #7ab9e8;
@@ -30,11 +50,15 @@
 
 
     .nav-link {
-        padding: 25px;
+        padding: 25px 10px;
+
+        @media (max-width: 575px) {
+            padding: 10px;
+
+        }
 
         &:hover {
             background: #1a76bc;
-
         }
 
         &__name {
