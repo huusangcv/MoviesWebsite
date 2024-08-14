@@ -7,28 +7,46 @@ import { IoSearch } from "react-icons/io5";
 import movieGenres from "../MovieGenresList";
 import movieGenresNations from "../MoviesGenresListNations";
 import movieYears from "../MoviesGenresListYears";
-const Header = ({ showSearchButton, setShowSearchButton }) => {
+const Header = ({
+    showSearchButton,
+    setShowSearchButton,
+    showButtonDropdown,
+    setButtonDropdown,
+}) => {
     const nagivate = useNavigate();
+
+    const handleShowToggle = () => {
+        const toggle = document.querySelector("#toggle");
+        const collapse = document.querySelector("#collapse");
+        // setButtonDropdown(!showButtonDropdown);
+        collapse?.classList.add("hide");
+    };
 
     return (
         <div className="position-fixed-header">
             <header className="header">
                 <Navbar expand="lg" className="nav-bar">
-                    <Navbar.Brand href="/MoviesWebsite" className="logo">
+                    <Navbar.Brand
+                        href="/MoviesWebsite"
+                        className="logo"
+                        // onClick={() => handleShowToggle()}
+                    >
                         <span className="logo__name">Movies</span>
                     </Navbar.Brand>
                     {/* <Navbar.Toggle
                         aria-controls="basic-navbar-nav"
                         className="btn-toggle"
                     /> */}
-                    <Navbar.Toggle className="btn-toggle"></Navbar.Toggle>
-                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Navbar.Toggle className="btn-toggle" id="toggle" />
+
+                    <Navbar.Collapse id="basic-navbar-nav collapse">
                         <Nav className="me-auto">
                             <NavLink
                                 className="nav-link"
                                 to="/MoviesWebsite/phim-le"
                                 onClick={() => {
                                     setShowSearchButton(true);
+                                    handleShowToggle();
                                 }}
                             >
                                 <span className="nav-link__name">Phim lẻ</span>
@@ -38,6 +56,7 @@ const Header = ({ showSearchButton, setShowSearchButton }) => {
                                 to="/MoviesWebsite/phim-bo"
                                 onClick={() => {
                                     setShowSearchButton(true);
+                                    handleShowToggle();
                                 }}
                             >
                                 <span className="nav-link__name">Phim bộ</span>
@@ -48,6 +67,7 @@ const Header = ({ showSearchButton, setShowSearchButton }) => {
                                 to="/MoviesWebsite/phim-dang-chieu"
                                 onClick={() => {
                                     setShowSearchButton(true);
+                                    handleShowToggle();
                                 }}
                             >
                                 <span className="nav-link__name">Phim mới</span>
@@ -75,6 +95,7 @@ const Header = ({ showSearchButton, setShowSearchButton }) => {
                                                         setShowSearchButton(
                                                             true
                                                         );
+                                                        handleShowToggle();
                                                     }}
                                                 >
                                                     {movieGenre.label}
@@ -99,11 +120,13 @@ const Header = ({ showSearchButton, setShowSearchButton }) => {
                                             key={movieGenresNation.id}
                                         >
                                             <div
-                                                onClick={() =>
+                                                onClick={() => {
                                                     nagivate(
                                                         `/MoviesWebsite/type/${movieGenresNation.slug}`
-                                                    )
-                                                }
+                                                    );
+                                                    setShowSearchButton(true);
+                                                    handleShowToggle();
+                                                }}
                                             >
                                                 {movieGenresNation.label}
                                             </div>
@@ -121,11 +144,13 @@ const Header = ({ showSearchButton, setShowSearchButton }) => {
                                     return (
                                         <NavDropdown.Item key={movieYear.id}>
                                             <div
-                                                onClick={() =>
+                                                onClick={() => {
                                                     nagivate(
                                                         `/MoviesWebsite/type/${movieYear.slug}`
-                                                    )
-                                                }
+                                                    );
+                                                    setShowSearchButton(true);
+                                                    handleShowToggle();
+                                                }}
                                             >
                                                 {movieYear.label}
                                             </div>
@@ -135,27 +160,15 @@ const Header = ({ showSearchButton, setShowSearchButton }) => {
                             </NavDropdown>
                             <NavLink
                                 className="nav-link"
-                                to="/MoviesWebsite/phim-dang-chieu"
+                                to="/MoviesWebsite/faqs"
+                                onClick={() => handleShowToggle()}
                             >
                                 <span className="nav-link__name">FAQs</span>
                             </NavLink>
                         </Nav>
-                        <Nav>
-                            {showSearchButton && (
-                                <NavLink
-                                    className="nav-link"
-                                    to="/MoviesWebsite/search"
-                                    onClick={() => {
-                                        setShowSearchButton(false);
-                                    }}
-                                >
-                                    <span className="nav-link__search">
-                                        <IoSearch />
-                                        Tìm kiếm
-                                    </span>
-                                </NavLink>
-                            )}
-                        </Nav>
+                        {/* <Nav>
+                          
+                        </Nav> */}
                         <Nav>
                             {/* <>
                                 <button
@@ -167,6 +180,20 @@ const Header = ({ showSearchButton, setShowSearchButton }) => {
                                     Đăng nhập
                                 </button>
                             </> */}
+                            {/* <NavDropdown
+                                id="basic-nav-dropdown"
+                                title={
+                                    <span className="nav-link__name">
+                                        Hữu Sang
+                                    </span>
+                                }
+                            >
+                                <NavDropdown.Item>Profile</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item>Logout</NavDropdown.Item>
+                            </NavDropdown> */}
+                        </Nav>
+                        <Nav>
                             <NavDropdown
                                 id="basic-nav-dropdown"
                                 title={
@@ -181,6 +208,23 @@ const Header = ({ showSearchButton, setShowSearchButton }) => {
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
+
+                    <Navbar.Brand>
+                        {showSearchButton && (
+                            <div
+                                className="nav-link"
+                                onClick={() => {
+                                    setShowSearchButton(false);
+                                    nagivate("/MoviesWebsite/search");
+                                }}
+                            >
+                                <span className="nav-link__search">
+                                    <IoSearch />
+                                    Tìm kiếm
+                                </span>
+                            </div>
+                        )}
+                    </Navbar.Brand>
                 </Navbar>
             </header>
         </div>

@@ -20,6 +20,7 @@ import MoviesSearch from "./pages/MoviesSearch";
 import MoviesType from "./pages/MoviesType";
 import Login from "./components/Auth/Login";
 import "./components/Auth/Login.scss";
+import FAQ from "./pages/Faqs";
 
 function App() {
     return (
@@ -39,6 +40,7 @@ function App() {
                 <Route path="search" element={<MoviesSearch />} />
                 <Route path="movie/:slug" element={<MovieDetail />} />
                 <Route path="watch/:slug" element={<WatchMovie />} />
+                <Route path="faqs" element={<FAQ />} />
                 <Route path={"*"} element={<NotFound />} />
             </Route>
             <Route path="/login" element={<Login />} />

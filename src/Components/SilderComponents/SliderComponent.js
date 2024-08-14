@@ -8,7 +8,7 @@ import { GrFormPrevious } from "react-icons/gr";
 const SliderComponent = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [timeRunning, setTimeRunning] = useState(3000);
-    const [timeAutoNext, setTimeAutoNext] = useState(10000);
+    const [timeAutoNext, setTimeAutoNext] = useState(7000);
 
     const carouselRef = useRef(null);
     const sliderRef = useRef(null);

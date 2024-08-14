@@ -27,7 +27,6 @@ const SingleMovies = () => {
         window.scrollTo(0, 0);
     }, [page]);
 
-    console.log(page);
     const handlePageClick = (event) => {
         setPage(event.selected + 1);
     };

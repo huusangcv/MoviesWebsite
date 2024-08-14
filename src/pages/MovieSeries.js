@@ -21,7 +21,6 @@ const MovieSeries = () => {
         window.scrollTo(0, 0);
         fecthMovies();
     }, [page]);
-    console.log(page);
     const handlePageClick = (event) => {
         setPage(event.selected + 1);
     };
@@ -36,7 +35,7 @@ const MovieSeries = () => {
             <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
                 {movieNew?.items?.map((movie, index) => {
                     return (
-                        <div className="col" key={movie.slug}>
+                        <div className="col col-sm-12" key={movie.slug}>
                             <a
                                 href=""
                                 className="card"

@@ -35,16 +35,19 @@ const Home = (props) => {
 
     //     return () => clearTimeout(timer);
     // }, []);
+    setTimeout(() => {
+        setIsLoading(false);
+    }, 3000);
 
     return (
         <>
-            {/* {isLoading ? (
+            {isLoading ? (
                 <div>Loading...</div>
             ) : (
                 <>
+                    <SliderComponent />
                 </>
-            )} */}
-            <SliderComponent />
+            )}
         </>
     );
 };

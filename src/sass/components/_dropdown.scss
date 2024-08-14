@@ -8,8 +8,7 @@ a.dropdown-item {
 
 .dropdown {
     &-type {
-        height: 700px;
-
+        max-height: 700px;
     }
 
     &-menu {
@@ -43,5 +42,14 @@ a.dropdown-item {
             background-color: #555;
             /* Màu của thanh cuộn khi hover */
         }
+    }
+}
+
+
+
+
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background: rgba(0, 0, 0, 0.9) !important;
     }
 }

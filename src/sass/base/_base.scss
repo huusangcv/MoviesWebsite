@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+
+:root {
+    --bs-breakpoint-xs: 575px;
+    --bs-breakpoint-sm: 576px;
+    --bs-breakpoint-md: 768px;
+    --bs-breakpoint-lg: 992px;
+    --bs-breakpoint-xl: 1200px;
+    --bs-breakpoint-xxl: 1400px;
+}
+
+
 /* Tắt select toàn bộ */
 * {
     -webkit-user-select: none;
@@ -92,9 +103,8 @@ button {
     position: relative;
 }
 
-.container {
-    max-width: 1400px;
-}
+
+
 
 .bg {
     position: fixed;
@@ -111,4 +121,23 @@ button {
     }
 
 
+}
+
+@media (max-width: 575px) {
+
+    .container {
+        max-width: 100%;
+
+        .row {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (min-width: 576px) {
+
+    .container,
+    .container-sm {
+        max-width: 100%;
+    }
 }
