@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -21,6 +21,15 @@ const Header = ({
         // setButtonDropdown(!showButtonDropdown);
         collapse?.classList.add("hide");
     };
+
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+    }, []);
 
     return (
         <div className="position-fixed-header">
@@ -188,44 +197,41 @@ const Header = ({
                         {/* <Nav>
                           
                         </Nav> */}
-                        <Nav>
-                            {/* <>
-                                <button
-                                    className="btn-login btn "
-                                    onClick={() => {
-                                        nagivate("/login");
-                                    }}
-                                >
-                                    Đăng nhập
-                                </button>
-                            </> */}
-                            {/* <NavDropdown
-                                id="basic-nav-dropdown"
-                                title={
-                                    <span className="nav-link__name">
-                                        Hữu Sang
-                                    </span>
-                                }
-                            >
-                                <NavDropdown.Item>Profile</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item>Logout</NavDropdown.Item>
-                            </NavDropdown> */}
-                        </Nav>
-                        <Nav>
-                            <NavDropdown
-                                id="basic-nav-dropdown"
-                                title={
-                                    <span className="nav-link__name">
-                                        Hữu Sang
-                                    </span>
-                                }
-                            >
-                                <NavDropdown.Item>Profile</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item>Logout</NavDropdown.Item>
-                            </NavDropdown>
-                        </Nav>
+                        <>
+                            {(user === null && (
+                                <Nav>
+                                    <button
+                                        className="btn-login btn-primay nav-link__name"
+                                        onClick={() => {
+                                            nagivate("/login");
+                                        }}
+                                    >
+                                        Đăng nhập
+                                    </button>
+                                </Nav>
+                            )) || (
+                                <Nav>
+                                    <NavDropdown
+                                        id="basic-nav-dropdown"
+                                        title={
+                                            <span className="nav-link__name">
+                                                Xin chào {user.authToken}
+                                            </span>
+                                        }
+                                    >
+                                        <NavDropdown.Item>
+                                            Profile
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item>
+                                            <NavLink to="/login">
+                                                Logout
+                                            </NavLink>
+                                        </NavDropdown.Item>
+                                    </NavDropdown>
+                                </Nav>
+                            )}
+                        </>
                     </Navbar.Collapse>
                 </Navbar>
             </header>

@@ -13,7 +13,6 @@ const Home = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [movieNew, setMovieNew] = useState([]);
     const [movieSlug, setMovieSlug] = useState([]);
-    console.log(props);
     // // const nagivate = useNavigate();
     // useEffect(() => {
     //     const fecthMovies = async () => {
