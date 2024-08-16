@@ -1,7 +1,6 @@
 .login-container {
     height: 700px;
-
-    .bg-light {}
+    background: #06121e;
 
     .loader-icon {
         font-size: 18px;
@@ -43,6 +42,8 @@
 
 .card {
     border-radius: 15px;
+    width: 100%;
+    height: 100%;
 }
 
 .show-pass {
@@ -52,4 +53,9 @@
 
 .invalid {
     color: red I !important
+}
+
+.bg-light {
+    background: #06121e !important;
+
 }
