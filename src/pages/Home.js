@@ -13,7 +13,6 @@ const Home = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [movieNew, setMovieNew] = useState([]);
     const [movieSlug, setMovieSlug] = useState([]);
-    console.log(props);
     // // const nagivate = useNavigate();
     // useEffect(() => {
     //     const fecthMovies = async () => {
@@ -35,19 +34,16 @@ const Home = (props) => {
 
     //     return () => clearTimeout(timer);
     // }, []);
-    // setTimeout(() => {
-    //     setIsLoading(false);
-    // }, 3000);
+    setTimeout(() => {
+        setIsLoading(false);
+    }, 3000);
 
     return (
         <>
-            {isLoading ? (
-                <div>Loading...</div>
-            ) : (
-                <>
-                    <SliderComponent />
-                </>
-            )}
+            {isLoading && <div>Loading....</div>}
+            <div className={(isLoading && "loader") || ""}>
+                <SliderComponent />
+            </div>
         </>
     );
 };

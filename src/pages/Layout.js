@@ -6,6 +6,7 @@ import MoviesApi from "../api/moviesApi";
 import Header from "../components/Layout/Header";
 import Movies from "./MoviesWatching";
 import Footer from "../components/Layout/Footer";
+import { ToastContainer } from "react-toastify";
 const Layout = (props) => {
     const [showSearchButton, setShowSearchButton] = useState(true);
     const [showButtonDropdown, setButtonDropdown] = useState(true);

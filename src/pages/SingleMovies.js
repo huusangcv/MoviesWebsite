@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import MoviesApi from "../api/moviesApi";
 import { useNavigate } from "react-router-dom";
-import { Pagination } from "react-bootstrap";
-import { PaginationControl } from "react-bootstrap-pagination-control";
 import ReactPaginate from "react-paginate";
 
 const SingleMovies = () => {
@@ -28,6 +26,8 @@ const SingleMovies = () => {
 
         window.scrollTo(0, 0);
         window.scrollTo(0, 0);
+        const userStorage = localStorage.getItem("user");
+        console.log(userStorage);
         let timer = setTimeout(() => {
             fecthMovies();
         }, 500);

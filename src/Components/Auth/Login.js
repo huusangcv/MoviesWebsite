@@ -1,121 +1,194 @@
 import { useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import videoplayback from "../../assets/videoplayback.mp4";
-// import { postLogin } from "../../services/apiServices";
-// import { toast } from "react-toastify";
-// import { useDispatch } from "react-redux";
-// import { doLogin } from "../../redux/action/userAction";
+import { postLogin } from "../../api/Auth/apiAuth";
+import { toast } from "react-toastify";
+
+import { useDispatch } from "react-redux";
 import { CgSpinnerTwoAlt } from "react-icons/cg";
+import { doLogin } from "../../redux/actions/userAction";
 const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     // const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    // const handleLogin = async () => {
-    //     setLoading(true);
+    const handleLogin = async () => {
+        setLoading(true);
+        // //submid apis
+        let data = await postLogin(email.trim(), password.trim());
+        console.log(data);
+        if (data && +data.EC === 0) {
+            // dispatch(doLogin(data));
 
-    //     //submid apis
-    //     let data = await postLogin(email.trim(), password.trim());
-    //     console.log(data);
-    //     if (data && +data.EC === 0) {
-    //         dispatch(doLogin(data));
-    //         toast.success(data.EM);
-    //         // setLoading(false);
-    //         navigate("/");
-    //     }
-
-    //     if (data && +data.EC !== 0) {
-    //         toast.error(data.EM);
-    //         setLoading(false);
-    //     }
-    // };
+            localStorage.setItem(
+                "user",
+                JSON.stringify({
+                    authToken: data.DT.username,
+                    // Có thể lưu thêm các thông tin khác như token, role, etc.
+                })
+            );
+            console.log(data.EM);
+            toast.success("Đăng nhập thành công!");
+            setLoading(false);
+            navigate("/MoviesWebsite");
+        }
+        if (data && +data.EC !== 0) {
+            console.log(data.EM);
+            setLoading(false);
+            toast.error(data.EM);
+        }
+    };
     return (
-        <div className="login">
-            <section className="vh-100 gradient-custom">
-                <div className="container py-5 h-100">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
-                        <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-                            <div
-                                className="card bg-dark text-white"
-                                // style="border-radius: 1rem;"
-                            >
-                                <div className="card-body p-5 text-center">
-                                    <div className="mb-md-5 mt-md-4 pb-5">
-                                        <h2 className="fw-bold mb-2 text-uppercase">
-                                            Login
-                                        </h2>
-                                        <p className="text-white-50 mb-5">
-                                            Please enter your login and
-                                            password!
-                                        </p>
+        <div className="login-container">
+            <section className="bg-light p-2 p-md-3 p-xl-5">
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-9 col-md-9 col-lg-7 col-xl-6 col-xxl-5">
+                            <div className="card border border-light-subtle rounded-4">
+                                <div className="card-body p-3 p-md-4 p-xl-5">
+                                    <div className="row">
+                                        <div className="col-12">
+                                            <div className="mb-5">
+                                                <div className="text-center mb-4">
+                                                    <a
+                                                        href=""
+                                                        onClick={() =>
+                                                            navigate("/")
+                                                        }
+                                                    >
+                                                        <span className="logo__name">
+                                                            Movies
+                                                        </span>
+                                                    </a>
+                                                </div>
 
-                                        <div
-                                            data-mdb-input-init
-                                            className="form-outline form-white mb-4"
-                                        >
-                                            <input
-                                                type="email"
-                                                id="typeEmailX"
-                                                className="form-control form-control-lg"
-                                            />
-                                            <label
-                                                className="form-label"
-                                                for="typeEmailX"
-                                            >
-                                                Email
-                                            </label>
+                                                <h4 className="text-center">
+                                                    Welcome back you've been
+                                                    missed!
+                                                </h4>
+                                            </div>
                                         </div>
-
-                                        <div
-                                            data-mdb-input-init
-                                            className="form-outline form-white mb-4"
-                                        >
-                                            <input
-                                                type="password"
-                                                id="typePasswordX"
-                                                className="form-control form-control-lg"
-                                            />
-                                            <label
-                                                className="form-label"
-                                                for="typePasswordX"
-                                            >
-                                                Password
-                                            </label>
-                                        </div>
-
-                                        <p className="small mb-5 pb-lg-2">
-                                            <a
-                                                className="text-white-50"
-                                                href="#!"
-                                            >
-                                                Forgot password?
-                                            </a>
-                                        </p>
-
-                                        <button
-                                            data-mdb-button-init
-                                            data-mdb-ripple-init
-                                            className="btn btn-outline-light btn-lg px-5"
-                                            type="submit"
-                                        >
-                                            Login
-                                        </button>
                                     </div>
-                                    <div>
-                                        <p className="mb-0">
-                                            Don't have an account?{" "}
-                                            <a
-                                                href="#!"
-                                                className="text-white-50 fw-bold"
-                                            >
-                                                Sign Up
-                                            </a>
-                                        </p>
+                                    <form
+                                        action="#!"
+                                        autoComplete="off"
+                                        onSubmit={(e) => e.preventDefault()}
+                                    >
+                                        <div className="row gy-3 overflow-hidden">
+                                            <div className="col-12">
+                                                <div className="form-floating mb-3">
+                                                    <input
+                                                        type="email"
+                                                        className="form-control"
+                                                        name="email"
+                                                        placeholder="name@example.com"
+                                                        required
+                                                        value={email}
+                                                        onChange={(e) =>
+                                                            setEmail(
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                    ></input>
+                                                    <label
+                                                        htmlFor="email"
+                                                        className="form-label"
+                                                    >
+                                                        Email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div className="col-12">
+                                                <div className="form-floating mb-3">
+                                                    <input
+                                                        type="password"
+                                                        className="form-control"
+                                                        name="password"
+                                                        id="password"
+                                                        placeholder="Password"
+                                                        required
+                                                        value={password}
+                                                        onChange={(e) =>
+                                                            setPassword(
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                    ></input>
+                                                    <label
+                                                        htmlFor="password"
+                                                        className="form-label"
+                                                    >
+                                                        Password
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            {/* <div className="col-12">
+                                                <div className="form-check">
+                                                    <input
+                                                        className="form-check-input"
+                                                        type="checkbox"
+                                                        value=""
+                                                        name="remember_me"
+                                                        id="remember_me"
+                                                    ></input>
+                                                    <label
+                                                        className="form-check-label text-secondary"
+                                                        htmlFor="remember_me"
+                                                    >
+                                                        Keep me logged in
+                                                    </label>
+                                                </div>
+                                            </div> */}
+                                            <div className="col-12">
+                                                <div className="d-grid">
+                                                    <button
+                                                        className="btn bsb-btn-xl btn-primary"
+                                                        // type="submit"
+                                                        onClick={() =>
+                                                            handleLogin()
+                                                        }
+                                                        disabled={loading}
+                                                    >
+                                                        {(loading && (
+                                                            <>
+                                                                <CgSpinnerTwoAlt className="loader-icon" />
+                                                            </>
+                                                        )) || (
+                                                            <>
+                                                                <span>
+                                                                    Đăng nhập
+                                                                </span>
+                                                            </>
+                                                        )}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div className="row">
+                                        <div className="col-12">
+                                            <hr className="mt-5 mb-4 border-secondary-subtle"></hr>
+                                            <div className="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end">
+                                                <a
+                                                    href=""
+                                                    className="link-secondary text-decoration-none"
+                                                    onClick={() =>
+                                                        navigate("/register")
+                                                    }
+                                                >
+                                                    Tạo mới tài khoản
+                                                </a>
+                                                {/* <a
+                                                    href="#!"
+                                                    className="link-secondary text-decoration-none"
+                                                >
+                                                    Forgot password
+                                                </a> */}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
