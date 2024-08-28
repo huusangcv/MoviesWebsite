@@ -5,8 +5,6 @@ import ReactPaginate from "react-paginate";
 
 const MoviesSearch = () => {
     const [moviesSearch, setMoviesSearch] = useState([]);
-    const [moviesSearch2, setMoviesSearch2] = useState([]);
-    const [moviesSearch3, setMoviesSearch3] = useState([]);
     const [page, setPage] = useState(1);
     const pageCount = Math.ceil(+moviesSearch?.paginate?.total_page);
     const [keyword, setKeyword] = useState("");
@@ -55,8 +53,7 @@ const MoviesSearch = () => {
                 {moviesSearch?.items?.map((movie, index) => {
                     return (
                         <div className="col" key={movie?.slug}>
-                            <a
-                                href=""
+                            <div
                                 className="card"
                                 onClick={() =>
                                     nagivate(
@@ -80,7 +77,7 @@ const MoviesSearch = () => {
                                         {movie?.original_name}
                                     </p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     );
                 })}

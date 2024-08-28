@@ -10,12 +10,12 @@ import { ToastContainer } from "react-toastify";
 const Layout = (props) => {
     const [showSearchButton, setShowSearchButton] = useState(true);
     const [showButtonDropdown, setButtonDropdown] = useState(true);
-    const handleShowBtnSearch = () => {
-        setShowSearchButton(false);
-    };
-    const handleShowBtnDropdown = () => {
-        setButtonDropdown(false);
-    };
+    // const handleShowBtnSearch = () => {
+    //     setShowSearchButton(false);
+    // };
+    // const handleShowBtnDropdown = () => {
+    //     setButtonDropdown(false);
+    // };
     return (
         <>
             <div className="app-container">

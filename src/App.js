@@ -29,11 +29,6 @@ function App() {
         <>
             <Routes>
                 <Route path="/MoviesWebsite" element={<Layout />}>
-                    {/* <Route index element={<Home />} />
-                    <Route path="blogs" element={<Blogs />} />
-                    <Route path="contact" element={<Contact />} />
-                    <Route path="*" element={<NoPage />} /> */}
-                    {/* <Route index element={<Home />} /> */}
                     <Route index element={<Home />} />
                     <Route path="phim-moi-cap-nhat" element={<NewMovies />} />
                     <Route path="phim-le" element={<SingleMovies />} />

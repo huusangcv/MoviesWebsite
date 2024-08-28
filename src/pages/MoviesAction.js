@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import MoviesApi from "../api/moviesApi";
 import { useNavigate } from "react-router-dom";
-import { Pagination } from "react-bootstrap";
-import { PaginationControl } from "react-bootstrap-pagination-control";
 import ReactPaginate from "react-paginate";
 
 const MoviesType = () => {
@@ -24,7 +22,6 @@ const MoviesType = () => {
         fecthMovies();
     }, [page]);
 
-    console.log(page);
     const handlePageClick = (event) => {
         setPage(event.selected + 1);
     };
@@ -142,8 +139,7 @@ const MoviesType = () => {
                     {movie?.items?.map((movie, index) => {
                         return (
                             <div className="col" key={movie.slug}>
-                                <a
-                                    href=""
+                                <div
                                     className="card"
                                     onClick={() =>
                                         nagivate(
@@ -167,7 +163,7 @@ const MoviesType = () => {
                                             {movie.original_name}
                                         </p>
                                     </div>
-                                </a>
+                                </div>
                             </div>
                         );
                     })}
